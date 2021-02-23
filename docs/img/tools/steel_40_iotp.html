@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>STEEL 4.0 IoTP</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+STEEL 4.0 IoTP - Industrial Internet of Things Platform
+<p>
+
+<h3>Defined in Task</h3>
+T4.1, T4.2
+<p>
+
+<h3>Short description</h3>
+<p>Steel 4.0 IoTP is a platform that is used to acquire, collect and store sensor and PLC data. The platform enables real-time stream processing as well as batch processing.</p>
+<p>Steel 4.0 IoTP platform provides a drag-and-drop easy-to-use interface and enables none technical users to easily create stream pipeline elements and pipelines.</p>
+<p>PLC data is collected by OPC and later via MQTT is passed to Kafka. Data in Kafka is consumed by Cassandra and PostgreSQL. The data are stored in the Cassandra database with three columns:  id, time, and value. The id column shows the component to which the data belong. The JSON format streams of the data transferred to the Cassandra database are presented to users as a log file.</p>
+<p>In the context of COGNITWIN, the IoTP output will be useful both in real-time condition monitoring and conducting the predictive maintenance.</p>
+<p>A fully asynchronous communication structure with the event-bus method is used for the transmission of data collected from the source with OPC. Data transmission is provided in the JSON format. In the architecture managed on the basis of Microservice, Cassandra is used as the NoSQL database, and PostgreSQL, a relational database (RDBMS), is used by the interface program that provides user interaction.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>PN/PN Coupler module is used for PLCs to communicate. Below figure presents coupling of the PROFINET subnets with the PN/PN Coupler:</p>
+<img src="steel_40_iotp-figure-1.png">
+<p>Figure: Coupling of the PROFINET subnets with the PN/PN Coupler</p>
+<img src="steel_40_iotp-figure-2.png">
+<p>Figure: PLC definition on OPC, and Sample Tag List Defined</p>
+<p>The pipeline used by the platform to acquire and distribute sensor data from OPC to Kafka is presented as in the following Figure:</p>
+<img src="steel_40_iotp-figure-3.png">
+<p>Figure: Pipeline for OPC -> MQTT -> Kafka in JSON</p>
+<img src="steel_40_iotp-figure-4.png">
+<p>Figure: Pipeline to demonstrate Kafka data saved on to Cassandra database</p>
+<p>
+
+<h3>Interfaces</h3>
+MQTT version 5, 3.1 and 3.1.1 are used, data in JSON is generated and stored in database, which is used by STEEL 4.0 IDBA, and STEEL 4.0 TMML, and also displayed by STEEL 4.0 ICPV. 
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+IoTP is based on Apache StreamPipes and uses OPC data. 
+<p>
+
+<h3>License</h3>
+Partially open
+<p>
+
+<h3>TRL</h3>
+The current TRL is 4 running to be TRL 6.
+<p>
+
+<h3>References</h3>
+<a href="https://hub.docker.com/_/eclipse-mosquitto">https://hub.docker.com/_/eclipse-mosquitto</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+NOKSEL
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Keras2RTL</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Keras2RTL - Machine learning to FPGA conversion
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.3: Deep learning performance
+<p>
+
+<h3>Short description</h3>
+<p>This tool allows to fill the gap between machine / deep learning development environments and FPGA development environments.</p>
+<p>Machine learning development environments are typically based on the python programming language and libraries such as keras and tensorflow (or pytorch) relying on Nvidia low level computing library named CUDA.</p>
+<p>Meanwhile, FPGA developments are based on VHDL programming language and integrated development environments (IDE) provided by the company that provides the FPGA component. For a Xilinx Virtex Ultrascale+ VU9P, the IDE is named Vivado.</p>
+<p>Keras2RTL takes as input a tf.keras model that is a file with .h5 extension that contains the topology of the machine learning neural network and the weights. At Scortex, the keras model is generated using the bonzai library (see other 5.3 components).</p>
+<p>Keras2RTL convert the topology from the .h5 file and generate the VHDL configuration files. These files will be used by Vivado to generate Honir.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The overall usage flow is:</p>
+<li>Train a tf.keras / keras model (typically using bonzai).
+<li>Quantize the model (or train it in a quantized way immediately).
+<li>Convert it using keras2RTL.
+<p>Use this model to run inference on images using the Honir component.</p>
+<img src="keras2rtl-figure-1.png">
+<p>As a demonstrator, Scortex trained a keras model on data from one of its demonstrators. The model allows defect detection on common goods parts, such as lego bricks, electrical switch and door handles.</p>
+<p>This deep learning model was quantized using the bonzai tool (see other component) and then processed by Keras2RTL process manually. The VHDL files produced was used for the configuration of inference engine (Honir: in task 4.4).</p>
+<p>In a more general manner, the tool should be used to allow automatic and fast conversion from a keras machine learning model to a VHDL config file that can be used for Honir creation.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>At a user level (a command line tool)</p>
+<p>IN : keras .h5 file (topology + weights)</p>
+<p>OUT : VHDL config file (for Honir tool build in T4.4)</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+This module can work in standalone. It is, however, necessary for Honir (inference engine) to work properly. Today the tool will support only keras models.
+<p>
+
+<h3>License</h3>
+In development, remains the property of Scortex. Will be used by Scortex exclusively
+<p>
+
+<h3>TRL</h3>
+TRL5
+<p>
+
+<h3>References</h3>
+<li>https://www.h5py.org/
+<li>https://www.tensorflow.org/guide/keras/save_and_serialize 
+<li>https://github.com/keras-team/keras 
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+The Honir platform will be considered as a way to run the tracking system for the Saarstahl  use case. In which case, keras2TL will be used to generate Honir configuration. But it could be extended to any other pilots running deep learning on images
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

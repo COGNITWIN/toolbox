@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>FUSE</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+FUSE 
+<p>
+
+<h3>Defined in Task</h3>
+5.1 (5.4)
+<p>
+
+<h3>Short description</h3>
+<p>FUSE is a tool for process input and state estimation, fusing plant physical model predictions with process measurements. The model and measurements are fused in nonlinear state estimation using an unscented Kalman filtering (UKF) based approach.</p>
+<p>In particular, the tool is developed for estimation of combustion boiler input fuel composition characteristics. The tool uses a physical model of the circulating fluidized bed boiler hotloop (fluidization and combustion) as well as on-line measurements from the process (flue gas, furnace temperatures, etc). The approach can be applied for alternative state estimation purposes, given that a suitable plant model and measurements are provided. A generalized version is under development.</p>
+<p>The UKF algorithm is well known and many implementations are available (e.g. in Matlab Control System Toolbox and Matlab Central open exchange). The FUSE tool focuses on practical aspects enabling of selection of states/inputs to estimate, measurement selection, data validation and reconciliation, physical model tuning, UKF tuning, and reduction of computational load, so a to support exploitation of computationally heavy physical models in plant operation and control.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The tool originates from solving the WP3 pilot problem on fuel characterization, as a part of the heat exchanger fouling monitoring problem. The tool was tuned and tested using real full scale boiler plant design and measurement data.</p>
+<p>Figure 1 illustrates the estimation filter outcomes during fuel test experiments.</p>
+<img src="fuse-figure-1.png">
+<p>Figure 1 FUSE fuel characterization during one week CFB operation.</p>
+<p>The top left picture shows the estimated fuel characteristics as a function of time. The coloured lines show the mass flow feed for pure forest wood chips, design fuel mix, and moisture. The black lines show the estimated and measured total fuel feed (indistinguishable). The bottom left picture illustrates the elementary composition of the estimated fuel feed. The right plots show the measured and predicted flue gas oxygen and sulfur dioxide concentrations and furnace temperatures during an eight-day plant operation period. The estimated fuel feeds match with the feeds during five known test setup periods (3 to 8 hours), also performance outside of test periods appears feasible.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>The physical model and measurements are set up in the Matlab m-files. Input data (measurements) are provided as numerical vectors. Interactive tuning is enabled by Matlab interface/graphics. Estimation outcomes are provided as numerical vectors.</p>
+<p>A link with StreamPipes is enabled by an OPC-UA client/server component (see FUSE OPC-UA tool).</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>The tool is implemented using Matlab language (m-files). Matlab from the Mathworks is required (FUSE has been tested on Matlab 2020b).</p>
+<p>Matlab (2020b) is available on all major operating systems, including Windows 7, Ubuntu 16, Debian 9, MacOS 10 and newer. No particular Matlab Toolboxes are required. Open software Octave is known to be able to interpret m-files, but FUSE-codes have not been tested with Octave. </p>
+<p>
+
+<h3>License</h3>
+The FUSE code is free for use in the project (contact Enso.Ikonen@oulu.fi). The CFB hotloop physical model and plant measurement data are Sumitomo proprietary.
+<p>
+
+<h3>TRL</h3>
+Current state is TRL 5 (validated in a relevant environment) currently being raised to TRL 6 (demonstrated in a relevant environment).
+<p>
+
+<h3>References</h3>
+<p>Ikonen & Selek (2020) Calibration of Physical Models with Process Data Using FIR ﬁltering. Australian and New Zealand Control Conference, Gold Coast, pp-143-148.</p>
+<p>The generalized Matlab-tool is available at http://cc.oulu.fi/~iko/COGNITWIN/</p>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Sumitomo SHI FW Energia Oy
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

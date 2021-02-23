@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>PPBM</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+PPBM - Pragmatism in physics-based modeling
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.4: Hybrid Digital Twins
+<p>
+
+<h3>Short description</h3>
+<p>"Pragmatism in physics-based modeling" is a method/framework for developing physics-based mathematical models. Such models may serve as a digital twin alone or as companion with data-based AI/ML methods, to form hybrid digital twins to exploit the combination of data and physics-based modeling.</p>
+<p>The purpose of "Pragmatism in physics-based modeling (PPBM)" is to device a generic methodology for development of physics-based models for application in digital twins. The PPBM provides a recipe for attacking a digital twin development, starting out from problem definition, information collection, including exact definitions of the output requirements for the model, assembling a system architects team,  model specification, use of sub-level empirical or computed data, model building and application. The PPBM can only be developed further though application in industrial cases, like the Sidenor pilot case.</p>
+<p>The physics, chemistry and numerical methods to be used may differ between applications, but PPBM should help the developers (system architects) to run though a set of well-defined steps on the way from problem definition to final application. For each new application using the PPBM new learning must be extracted and reported (published).</p>
+<p>In the Sidenor pilot case offline data is used. The data has multiple challenges. We now explore extending the PPBM to applying a PPBM based application to clean the available data, but also provide additional simulated data. These combined data will be further be explored in a hybrid approach.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>In the Sidenor pilot, applying and extending the PPFM method, we are developed a model for the ladle refractory erosion. The thermal model is now possible to operate, and an example is shown below. The erosion models are under development.</p>
+<p>We can see that the steel level was surprisingly low in this case. This was found to be an error in the data. However, the thermal model alone demonstrates that different erosion levels on the inside of the lade will lead to different dynamics surface temperatures. In this case it supports that combining PPBF,  thermal imaging and ML/AI a route to keep track on ladle life is possible.</p>
+<img src="pfbm-figure-1.png">
+<p>Figure A: We see the outer surface temperature at time 131 min after metal was filled into the ladle. The ladle was initially eroded.</p>
+<p>Figure B: Same case as in Figure A, but ladle has no initial erosion. The outer surface temperature of the ladle is significantly modified.</p>
+<p>
+
+<h3>Interfaces</h3>
+The Sidenor application of the PPBM is currently reading  data in ascii format (*.csv, *.xls) and output is saved as files in similar formats. In addition data can be saved in the VTK *.vts format. These files can be loaded into the Paraview (https://www.paraview.org/ ) tool for 3D visualization of the results.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+The Sidenor model is using Python 3 and standard Python libraries. It can be run on both Windows and Linux systems.
+<p>
+
+<h3>License</h3>
+The model will be open (free use) and at the end of the project to be published at https://github.com.
+<p>
+
+<h3>TRL</h3>
+Currently it is TRL=3. As this belongs to the class of methods it may be developed into a technical standard at a later stage. https://en.wikipedia.org/wiki/Technical_standard 
+<p>
+
+<h3>References</h3>
+<li>J. Zoric, S. T. Johansen, K. E. Einarsrud, and A. Solheim, ‘ON PRAGMATISM IN INDUSTRIAL MODELING’, Progress in Applied CFD, Selected papers from 10th International Conference on Computational Fluid Dynamics in the Oil & Gas, Metallurgical and Process Industries, vol. 1, pp. 9–24, 2015. Available: https://www.sintefbok.no/book/download/1038 
+<li>J. Zoric et al., ‘On Pragmatism in industrial modeling - Part II: Workflows and associated data and metadata’, Melbourne, Australia, 7-9 December, 2015, 2015, p. 7 pages, [Online]. Available: http://www.cfd.com.au/cfd_conf15/PDFs/032JOH.pdf . 
+<li>S. T. Johansen, E. A. Meese, J. Zoric, A. Islam, and D. W. Martins, ‘On Pragmatism in Industrial Modeling, Part III: Application to Operational Drilling’, in Progress in Applied CFD – CFD2017 Selected papers from 12th International Conference on Computational Fluid Dynamics in the Oil & Gas, Metallurgical and Process Industries, Trondheim, 2017, p. 11, [Online]. Available: http://hdl.handle.net/11250/2465068 .
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Sidenor and Sumitomo. In addition the Sidenor application may be exploited by COGNITWIN partners Elkem and Saarstahl.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

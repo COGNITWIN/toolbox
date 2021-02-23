@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>FUSE OPC-UA</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+FUSE OPC-UA
+<p>
+
+<h3>Defined in Task</h3>
+T4.3
+<p>
+
+<h3>Short description</h3>
+<p>FUSE OPC-UA is a tool enabling the necessary data transfer during on-line operation of FUSE state estimation tool. This includes transfer of measurement data from plant to the evaluation of FUSE algorithms (Matlab) and propagation of outcomes for further use (e.g. to StreamPipes or company asset management services).</p>
+<p>The FUSE OPC-UA communication tool is based on setting up an OPC-UA server (Prosys Simulation Server) for data transfer, supported by OPC-UA client services by the other used software (Matlab, StreamPipes, asset management services).</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The tool originates from solving the WP3 pilot problem on fuel characterization, as a part of the heat exchanger fouling monitoring problem. Figure 1 illustrates the designed and tested architecture for data transfer.</p>
+<img src="fuse_opc-ia-figure-1.png">
+<p>Figure 1 FUSE fuel characterization during one week CFB operation.</p>
+<p>The links between Matlab – OPC-UA  – StreamPipes have been implemented and tested with the FUSE state estimation tool. Currently, the link between pilot and OPC-UA server has been simulated by a Matlab OPC-UA client, the OPC-DA communication has not been tested.</p>
+<p>
+
+<h3>Interfaces</h3>
+The Prosys OPC-UA Simulation server provides a full user interface for setting up the desired nodes. The Matlab OPC-UA is set up by defining proper function calls. The StreamPipes provides a UI for OPC-UA adapters.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+The FUSE OPC-UA server is implemented on Windows 10. Prosys Simulation server is available for Windows, Linux and macOS. 
+<p>
+
+<h3>License</h3>
+<p>For info on the FUSE OPC-UA tool, contact Markus.Neuvonen@oulu.fi.</p>
+<p>Prosys Simulation Server 5.0.2 free edition has full functionality, except importing OPC-UA information models.</p>
+<p>Matlab OPC-UA functionality requires the Matlab OPC-Toolbox from Mathworks.</p>
+<p>Apache StreamPipes is open source.</p>
+<p>
+
+<h3>TRL</h3>
+Current state is TRL 5 (validated in a relevant environment) currently being raised to TRL 7 (prototype demonstrated in a relevant environment).
+<p>
+
+<h3>References</h3>
+<li>https://www.prosysopc.com/products/opc-ua-simulation-server/
+<li>https://se.mathworks.com/products/opc.html
+<li>https://streampipes.apache.org/
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Sumitomo SHI FW Energia Oy
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

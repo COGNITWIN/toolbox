@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+    <div class="logo-image">
+      <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+      <h1 class="tbfy-title"></h1>
+    </div>
+  </div>
+</div>
+   
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>FAST</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+FAST – Fraunhofer AAS Tools for Digital Twins 
+<p>
+
+<h3>Defined in Task</h3>
+n/a
+<p>
+
+<h3>Short description</h3>
+<p>FAST is a Java-based software ecosystem for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1]. It will be used in the project to develop standard-conform executable DTs in the pilots.</p>
+<p>FAST currently consists of two software artefacts, the AAS Service library enabling creating of executable DTs and the AAS registry, a service where DTs can be registered and discovered. Both of them will be presented in the following.</p>
+<h4>AAS Service Library</h4>
+<p>The AAS service library is designed to be easily extendible and offers a variety of extension points via interface, e.g. for de-/serialization formats and persistence implementation as well as different protocols for endpoints and asset connections.</p>
+<p>The following figure shows a high-level architectural view presenting all the function blocks of the library of which almost all are defined as interfaces for loose coupling and easy extension.</p>
+<img src="fast-figure-1.png"></img>
+<p>The basic functionality of each function block is as follows:</p>
+<ul>
+  <li><b>Protocol Endpoint (interface):</b> A network endpoint that provides connectivity from external applications to the DT, e.g. via a HTTP or OPC UA server. 
+  <li><b>API calls, Events, I4.0 Language (interfaces):</b> These interfaces represent the three different types of messages that can be handled by a DT. API calls are messages that are explicitly defined in the standard documents such as read/write a property. Events are subscriptions to either property changes or alarms. I4.0 languages are an extension concept defined in the standard documents that allows definition of custom communication protocols, i.e. message and payload types, that are expected to be developed and standardized in the future. 
+  <li><b>Handler (interface):</b> The Handler interface also to inject custom processing logic into the execution phase of specific incoming messages. This is essential especially for executing custom code when using I4.0 languages. 
+  <li><b>AAS Model:</b> This is a code representation of the AAS meta model as defined in the standard document [1]. 
+  <li><b>De-/serializer (interface):</b> The two interfaces allow implementing different de-/serialization algorithms. This is important because the standard defines multiple data formats (JSON, XML, RDF, AutomationML) that should be supported. 
+  <li><b>Persistence Manager (interface):</b> This interface abstracts from concrete implementations of data storage so that it is easy to integrate any kind of data storage into a DT. 
+  <li><b>Asset Connection (interface):</b> This interface defines how the DT interacts with the actual (physical) asset/device. As assets can communicate via lots of different protocols, e.g. HTTP, OPC UA, Profibus, CAN bus, etc., it is crucial that the AAS service library allows custom implementations of this connection logic.  
+</ul>
+<h4>AAS Registry</h4>
+<p>The second software artefact of FAST is the AAS registry. It offers a standard-conform way to register, manage and discover deployed administration shells. It is also implementation in Java, but is also available as a standalone docker container.</p>
+<p>The following figure shows the high-level architecture of the AAS registry.</p>
+<img src="fast-figure-2.png"></img>  
+<p>The outermost boxes represent software (gradle) projects whereas the inner boxes represent Java classes/interfaces. The core project contains the classes representing the AAS meta model as well as an interface defining CRUD methods to again abstract from the concrete implementation of storage adapter. Currently there are two implementations of that interface, one providing in-memory storage of data and one using the Java Persistence API (JPA) that supports again multiple different SQL and object-based databases.</p>
+<p>The app project contains the Service class which implements the actual logic as well as the Controller class that defines an HTTP endpoint for the service.</p>
+<p>
+
+<h3>Example of usage</h3>
+<img src="fast-figure-3.png"></img>
+<p>Simple example how to create a runnable AAS based on a AAS model defined in aas_model.json</p>
+<p>
+
+<h3>Interfaces</h3>
+The AAS service library provides a so-called fluent API for application developers to easily create administration shells and integrate them into existing (Java-based) applications if necessary. It also makes use of (software) interfaces where possible to allow customization. Probably the most important of these interfaces is for the asset connection, i.e. the logic that connects the administration shell with the real-world asset. The library currently ships with a preexisting implementation for OPC UA-based assets. Once running, an administration shell exposes its functionality by standardized APIs via so-called endpoints. Currently, it ships with only an implementation for a HTTP-based endpoint but custom extensions are also easily possible here.  
+The AAS registry provides a standardized HTTP/REST-based interface to register, read, update and delete administration shells. 
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+The library is based on Java 8.1. The code has dependencies on multiple open source libraries, e.g. Eclipse Jetty [2] or Jackson [3]. All required libraries are licensed under either Apache 2.0, LGPL or MIT.
+<p>
+
+<h3>License</h3>
+The software library is currently not publicly available but will be available for the project partners free of charge. We are currently considering publication as open source, most likely under LGPLv3 license. 
+<p>
+
+<h3>TRL</h3>
+TRL 4/5 
+<p>
+
+<h3>References</h3>
+<p>[1] <a href="https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html">https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html</a></p>
+<p>[2] <a href="https://www.eclipse.org/jetty/">https://www.eclipse.org/jetty/</a></p>
+<p>[3] <a href="https://github.com/FasterXML/jackson">https://github.com/FasterXML/jackson</a></p>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+As FAST is still in an early stage of development it is currently only used in a demonstrator setup for the Sidenor steel ladle pilot. However, it is envisioned to be used by almost all pilots later on. 
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

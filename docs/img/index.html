@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+  <div class="panel-heading"><h2>COGNITWIN Platform: Tools & Services</h2></div>
+  <div class="panel-body-1">
+
+  <div class="description">
+    <p>The COGNITWIN Platform is structured according to a layered architecture, comprising a set of different Digital Twin (DT) services, that allows different levels of access and use. A layer-based architecture allows separating the different services so that most of the interaction occurs only between adjacent layers and any change in a technology does not affect the rest of the services.</p> 
+    <br>
+    <p>As shown in the figure, four main layers have been defined, those corresponding to 1) DT data acquisition tools & services, 2) DT representation tools & services, 3) DT analytics tools & services, and 4) DT visualization and control tools & services that will be explained below.</p>
+    <br>
+  </div>
+
+  <div><p><a href="img/architecture.png" target="_blank"><img src="img/architecture.png" width="100%"></a></p></div>
+
+<!--  <schema class="item">
+    <h4 class="title">High-level Architecture</h4>
+    <div class="description"><p><a href="img/architecture.png" target="_blank"><img src="img/architecture.png" width="200%"></a></p>
+    </div>
+  </schema>-->
+  <hr>
+
+<div style="border-left: 6px solid #2B3E50; margin-left: -3px; top: 0;">
+  <div class="list">
+    <p style="text-orientation: upright;color: #2B3E50;margin-left: 10px;font-weight:bold;font-size: xx-large;font-weight: 500;">Digital Twin Data Acquisition Tools & Services</p>
+    <div class="description">
+      <p>This layer containts the Digital Twin data acquisition tools & services of the COGNITWIN Platform.</p>
+    </div>
+    <p style="text-orientation: upright;color: #2B3E50;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Communication</p>
+    <article class="item">
+      <h4 class="title">MAI</h4>
+      <div class="description"><p>Weather data from yr.no for application in model of industrial process.</p><br><br><br>
+        <a href="tools/mai.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica OPC-UA Server</h4>
+      <div class="description"><p>The Cybernetica OPC-UA Server is a general purpose OPC-UA server supporting the Data Access (DA) interface.</p><br><br>
+        <a href="tools/cybernetica_opc-ua_server.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">FUSE OPC-UA</h4>
+      <div class="description"><p>FUSE OPC-UA is a tool enabling the necessary data transfer during on-line operation of FUSE state estimation tool.</p><br><br>
+        <a href="tools/fuse_opc-ua.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">TOPC-UA</h4>
+      <div class="description"><p>OPC-UA and data connectors from Teknopar.</p><br><br><br><br>
+        <a href="tools/topc-ua.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">IDS Connectors</h4>
+      <div class="description"><p>Over the IDS Connector, industrial data clouds, individual enterprise clouds, on-premise applications and individual, connected devices can be connected to the International Data Space ecosystem.</p><br>
+        <a href="tools/ids_connectors.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #2B3E50;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Orchestration</p>
+    <article class="item">
+      <h4 class="title">Adapt_ST</h4>
+      <div class="description"><p>Set of adapters (for data sources and components) for StreamPipes-based Toolbox.</p><br><br><br>
+        <a href="tools/adapt_st.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Big Data Pipelines Deployment Framework (BDPDF)</h4>
+      <div class="description"><p>A framework to allow high-level design/specification of scalability aspects of Big Data processing pipelines and their deployment on the continuum computing infrastructure.</p>
+        <a href="tools/bdpdf.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="https://github.com/SINTEF-9012/ebw-prototype" target="_blank"><img src="img/github_icon.png" width="24" alt="API"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Apache2.0-blue" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #2B3E50;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">FPGA-AI</p>
+    <article class="item">
+      <h4 class="title">Honir</h4>
+      <div class="description"><p>This tool allows to perform machine learning / deep learning algorithm inference in real time on images data source.</p><br><br>
+        <a href="tools/honir.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Lodur</h4>
+      <div class="description"><p>Lodur is a frame grabber. It is responsible for connecting a camera to an FPGA platform (Honir).</p><br><br><br>
+        <a href="tools/lodur.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">TStreamPipes-Adapters</h4>
+      <div class="description"><p>TStreamPipes-Adapters enable non-experts to create data stream pipes that end with Cassandra and Fiware.</p><br><br>
+        <a href="tools/tstreampipes-adapters.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #2B3E50;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Platforms</p>
+    <article class="item">
+      <h4 class="title">Bedrock</h4>
+      <div class="description"><p>The BEDROCK Toolbox is a flexible and easily deployable software bundle of modules developed as a platform to be deployed on various servers – with one instance running on local machines and servers at SINTEF Industry.</p>
+        <a href="tools/bedrock.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">STEEL 4.0 IoTP</h4>
+      <div class="description"><p>Steel 4.0 IoTP is a platform that is used to acquire, collect and store sensor and PLC data.</p><br><br><br>
+        <a href="tools/steel_40_iotp.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+  </div>
+</div>
+
+<hr>
+
+<div style="border-left: 6px solid #4281C3; margin-left: -3px; top: 0;">
+  <div class="list">
+    <p style="text-orientation: upright;color: #4281C3;margin-left: 10px;font-weight:bold;font-size: xx-large;font-weight: 500;">Digitial Twin Representation Tools & Services</p>
+    <div class="description">
+      <p>This layer contains the Digital Twin representation tools & services of the COGNITWIN Platform.</p>
+    </div>
+    <p style="text-orientation: upright;color: #4281C3;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Digital Twin</p>
+    <article class="item">
+      <h4 class="title">FAST</h4>
+      <div class="description"><p>Fraunhofer AAS Tools (FAST) for Digital Twins.</p><br><br><br><br>
+        <a href="tools/fast.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="https://opensource.org/licenses/LGPL-3.0" target="_blank"><img src="https://img.shields.io/badge/license-LGPL3-blue.svg" alt="License"></a>
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">TWEAR</h4>
+      <div class="description"><p>Services for resolving tool wear / equipment degradation problems in process industry (to be used for realizing Digital Twin services).</p><br><br>
+        <a href="tools/twear.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Aerial Photogrammetry (TSYNTH)</h4>
+      <div class="description"><p>Photogrammetry is a technique for the capturing of three-dimensional (3D) models from real world environments. The technique works by taking images from manually selected positions and reconstructing a 3D model from the images.</p>
+        <a href="tools/aerial_photogrammetry.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">PPBM</h4>
+      <div class="description"><p>"Pragmatism in physics-based modeling" is a method/framework for developing physics-based mathematical models.</p><br><br>
+        <a href="tools/ppbm.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">SpinPro</h4>
+      <div class="description"><p>The goal of this component is to formalize human tacit knowledge and make it available to other software components. This will be done by generating machine-processable rules based on spoken input.</p>
+        <a href="tools/spinpro.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">TMat SynDat</h4>
+      <div class="description"><p>TMat SynDat (MATLAB Synthetic Data Generator for Electro Mechanical parts) is a synthetic data generator for common electro mechanical parts, including electric DC motors and a hydraulic shaft.</p><br>
+        <a href="tools/tmat_syndat.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Tmat PdM</h4>
+      <div class="description"><p>TMat PdM (MATLAB Predictive Maintenance for Electro Mechanical Components) is a model used for predictive maintenance of DC motor, gearbox and hydraulic press.</p><br>
+        <a href="tools/tmat_pdm.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">DT-Graph</h4>
+      <div class="description"><p>The framework covers aspects related to Digital Twin data representation, data storage, and support for discrete/continuous simulation.</p><br><br>
+        <a href="tools/dt-graph.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Apache2.0-blue" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">GRAFT-SDQ</h4>
+      <div class="description"><p>Grafterizer-SDQ (Sensor Data Quality).</p><br><br><br><br>
+        <a href="tools/graft-sdq.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #4281C3;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Event Processing</p>
+    <article class="item">
+      <h4 class="title">StreamPipes Siddhi-Processor</h4>
+      <div class="description"><p>StreamPipes Siddhi-Processor is a component that enables analysis of data streams in a context of CEP (Complex Event Processing) using StreamPipes as underlying platform.</p><br>
+        <a href="tools/streampipes_siddhi-processor.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="https://github.com/apache/incubator-streampipes/tree/rel/0.67.0/streampipes-wrapper-siddhi" target="_blank"><img src="img/github_icon.png" width="24" alt="API"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Apache2.0-blue" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">CEP Editor</h4>
+      <div class="description"><p>The editor provides a graphical user interface to create, modify and deploy complex event processing (CEP) patterns.</p><br><br>
+        <a href="tools/cep_editor.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #4281C3;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Data Space</p>
+  </div>
+</div>
+
+<hr>
+
+<div style="border-left: 6px solid #8BB3D6; margin-left: -3px; top: 0;">
+  <div class="list">
+    <p style="text-orientation: upright;color: #8BB3D6;margin-left: 10px;font-weight:bold;font-size: xx-large;font-weight: 500;">Digital Twin Analytics Tools & Services</p>
+    <div class="description">
+      <p>This layer contains the Digital Twin analytics tools & services of the COGNITWIN Platform.</p>
+    </div>
+    <p style="text-orientation: upright;color: #8BB3D6;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Cognitive Twin</p>
+    <article class="item">
+      <h4 class="title">HyDes_ST</h4>
+      <div class="description"><p>Hybrid model Designer for StreamPipes-based Toolbox (to be used for the realization of the Hybrid Twin models and services).</p><br><br>
+        <a href="tools/hydes_st.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">CogConf_ST</h4>
+      <div class="description"><p>Cognition-based Decision Making Configurator for StreamPipes-based Toolbox (to be used for the realization of the Cognitive Twin services).</p><br><br>
+        <a href="tools/cogconf_st.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #8BB3D6;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">Machine Learning</p>
+    <article class="item">
+      <h4 class="title">Bonzai</h4>
+      <div class="description"><p>Bonzai is Scortex python library handling everything related to deep learning on images.</p><br><br><br>
+        <a href="tools/bonzai.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Keras2RTL</h4>
+      <div class="description"><p>This tool allows to fill the gap between machine / deep learning development environments and FPGA development environments. </p><br><br>
+        <a href="tools/keras2rtl.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Neuroscope</h4>
+      <div class="description"><p>Neuroscope is a visual debugger for convolutional neural networks. The software is an interactive tool with a graphical user interface intended for interactive use by data scientists on the application level.</p>
+        <a href="tools/neuroscope.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="https://github.com/c3di/neuroscope" target="_blank"><img src="img/github_icon.png" width="24" alt="API"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-GPL-yellow.svg" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">STEEL 4.0 TMLL</h4>
+      <div class="description"><p>Steel 4.0 TMLL provides and enables the application of machine learning algorithms and needed to perform smart predictive maintenance for the SWP machinery.</p><br>
+        <a href="tools/steel_40_tmll.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">TStreamPipes-ML</h4>
+      <div class="description"><p>TStreamPipes-ML is an Apache StreamPipes based tool, it enables none technical users to select and execute machine learning algorithms for predictive maintenance purposes.</p><br>
+        <a href="tools/tstreammlpipes-ml.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #8BB3D6;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">First Order Models</p>
+    <article class="item">
+      <h4 class="title">FUSE</h4>
+      <div class="description"><p>FUSE is a tool for process input and state estimation, fusing plant physical model predictions with process measurements.</p><br><br>
+        <a href="tools/fuse.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cc.oulu.fi/~iko/COGNITWIN/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">SubFUSE</h4>
+      <div class="description"><p>SubFUSE is a state estimation (soft-sensory) tool which fuses subspace methods for system identification with Kalman filtering.</p><br><br>
+        <a href="tools/subfuse.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica CENIT</h4>
+      <div class="description"><p>Cybernetica CENIT is a tool for online estimation and nonlinear model predictive control. It can be used as both a soft sensing application and a control application.</p><br>
+        <a href="tools/cybernetica_cenit.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica Cognitive CENIT</h4>
+      <div class="description"><p>This is a planned extension of the existing Cybernetica CENIT that will add cognition to the application.</p><br><br>
+        <a href="tools/cybernetica_cognitive_cenit.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica Modelfit</h4>
+      <div class="description"><p>Cybernetica ModelFit is a tool used for off-line estimation of model states and parameters, for model validation, and for design of the on-line estimation part of Cybernetica CENIT applications.</p><br>
+        <a href="tools/cybernetica_modelfit.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica RealSim</h4>
+      <div class="description"><p>Cybernetica RealSim is a plant replacement process simulator used for testing of CENIT or other control applications.</p><br><br>
+        <a href="tools/cybernetica_realsim.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">Cybernetica ProXim</h4>
+      <div class="description"><p>Cybernetica ProXim is a software platform for building tailor-made process simulators using the same kind of process models as Cybernetica CENIT.</p><br><br>
+        <a href="tools/cybernetica_proxim.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+  </div>
+</div>
+
+<hr>
+
+<div style="border-left: 6px solid #5BBDFF; margin-left: -3px; top: 0;">
+  <div class="list">
+    <p style="text-orientation: upright;color: #5BBDFF;margin-left: 10px;font-weight:bold;font-size: xx-large;font-weight: 500;">Digital Twin Visualization and Control Tools & Services</p>
+    <div class="description">
+      <p>This layer contains the Digital Twin visualization and control tools & services of the COGNITWIN Platform.</p>
+    </div>
+    <p style="text-orientation: upright;color: #5BBDFF;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">2D Visualization</p>
+    <article class="item">
+      <h4 class="title">COGNITWIN Toolbox Portal</h4>
+      <div class="description"><p>COGNITWIN Toolbox Portal</p><br><br><br><br>
+        <a href="tools/cognitwin_toolbox_portal.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <article class="item">
+      <h4 class="title">STEEL 4.0 ICPV</h4>
+      <div class="description"><p>STEEL 4.0 ICPV supports the digital twin by means of visual components presenting the generated data which is retrieved from, and processed within other STEEL 4.0 components</p><br>
+        <a href="tools/steel_40_icpv.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+    <p style="text-orientation: upright;color: #5BBDFF;margin-left: 10px;font-weight:bold;font-size: large;font-weight: 500;">3D Visualization</p>
+    <article class="item">
+      <h4 class="title">Cybernetica Viewer</h4>
+      <div class="description"><p>Cybernetica Viewer is a tool for creating user interfaces to display and manipulate data from an OPC server in various ways.</p><br><br>
+        <a href="tools/cybernetica_viewer.html" target="_blank"><img src="img/page_icon.png" width="24" alt="link"/ class="ico"></a>
+        <a href="http://cybernetica.no/technology/model-predictive-control/" target="_blank"><img src="img/link_icon.png" width="24" alt="link"/ class="ico"></a>
+        <img src="https://img.shields.io/badge/license-Copyright%20%C2%A9-red" alt="License">
+      </div>
+    </article>
+  </div>
+</div>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

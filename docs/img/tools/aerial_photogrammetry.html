@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Aerial Photogrammetry (TSYNTH)</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Aerial Photogrammetry
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.2: Multi-variate Sensor analytics with Deep Learning
+<p>
+
+<h3>Short description</h3>
+<p>Photogrammetry is a technique for the capturing of three-dimensional (3D) models from real world environments. The technique works by taking images from manually selected positions and reconstructing a 3D model from the images. As the camera parameters (position and orientation) are unknown, the most important step is to computationally determine position and orientation of each image.</p>
+<p>Photogrammetry has a reduced surface precision compared to laser-based surface scanners, but has the immense advantage that it generates textured models in a single step, i.e. the generated models can immediate be used for photorealistic rendering. Another advantage is that photogrammetry is applicable to a wide range of length scales. If combined with macro photography, photogrammetry can capture details on the micrometer scale, if combined with handheld cameras it can produce centimeter scale objects, and combined with drones (aerial photogrammetry), the capture area can extend over several square kilometers.</p>
+<p>In the course of this project, we will provide a process for aerial photogrammetry which allows the capturing of entire sections of a production plants, such as the Saarstahl milling plant. This workflow will be assembled from commercially available components but adapted to the specific needs if being used in a large indoor-environment with harsh production conditions. The purpose of the captured 3D models is the generation of training data for machine learning applications.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The first example depicts a photogrammetric model reconstruction of Saarstahl’s steel billet chunk with dimensions 10x10x10 cm. The chunk was shot at different viewpoints by a handheld camera. 44 unpreprocessed photographs were used as an input for Agisoft Metashape software.</p>
+<img src="aerial_photogrammetry-figure-1.png">
+<p>Figure: Photogrammetric reconstruction of Saarstahl’s billet chunk. Left: one of 44 original photographs of the billet chunk. Middle: a viewport of Agisoft Metashape with indicated camera positions. Right: a reconstructed untextured 3D model.</p>
+<p>The second example is a usage of photogrammetry for synthesizing training data for deep learning applications. In particular, in the course of the project we explore the ability of using synthetically generated images for training billet tracking models.  To begin the simulation process, a large number of high-resolution overlapping photos was taken over the area of Saarstahl’s blooming train. Here, we conducted image capturing by a drone as well as by a tripod-mounted camera. Using Agisoft Metashape software we reconstructed the 3D shape of the scenery, which replicates the real environment in correct dimension proportions (Figure top). Next, the 3D model of the blooming train was repaired and cleaned up.  After 3D parametric models of billets were inserted into the scene, the wide-angle lens distortion was applied (Figure, bottom left).  To simulate changes in scenery  and lightning conditions, the 3D setting  was  composed with original footages captured by surveillance cameras (Figure, bottom middle). Finally, we rendered images paired with billet segmentation masks (Figure, bottom right) which are used as a training data for billet detection and tracking models.</p>
+<img src="aerial_photogrammetry-figure-2.png">
+<p>Figure: Process of synthesizing training data. Top: a textured 3D model of Saarstahl’s blooming train. Bottom left: a 3D setting of billet rolling process. Bottom middle: a generated image. Bottom right: a generated instance segmentation mask.</p>
+<p>
+
+<h3>Interfaces</h3>
+Agisoft Metashape software is a stand-along software that performs photogrammetric processing of digital photographs. It loads arbitrary number of  unpreprocessed images in common format and generates a 3D model of a scenery. Here it is important to capture high-quality and high-overlapping images of the setting to compute the best quality model. It is recommended to employ a camera with 5Mpx resolution at least and to shoot photographs with 80% overlap.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>Recommended configurations for Agisoft Metashape:</p>
+<li>Windows 7 SP 1 or later (64 bit), Mac OS X Mountain Lion or later, Debian/Ubuntu with GLIBC 2.13+(64 bit)
+<li>Intel Core i7 or AMD Ryzen 7 processor
+<li>Discrete NVIDIA or AMD GPU
+<li>32 GB of RAM
+<p>
+
+<h3>License</h3>
+The component is realized as a non-disclosed inhouse workflow.
+<p>
+
+<h3>TRL</h3>
+7
+<p>
+
+<h3>References</h3>
+<a href="https://www.software3d.de/agisoft-metashape-pro">https://www.software3d.de/agisoft-metashape-pro</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Saarstahl.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

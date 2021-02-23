@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Neuroscope</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Neuroscope
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.2: Multi-variate Sensor analytics with Deep Learning
+<p>
+
+<h3>Short description</h3>
+<p>Neuroscope is a visual debugger for convolutional neural networks. The software is an interactive tool with a graphical user interface intended for interactive use by data scientists on the application level.</p>
+<p>The purpose of the Neuroscope software is to allow data scientists to gain insight in the inner workings of a neural network, in the case of a system malfunction or misbehavior. The approach taken by Neuroscope is a network visualization approach, which means that the weights of the inner layers are visualized in a human interpretable way, which is helpful for understanding why a certain misbehavior occurred. In the context of COGNITWIN, the Neuroscope software will be useful as part of a software toolbox to make machine learning technology practically useable.</p>
+<p>The software supports the following major features: (1) visualization of network architectures loaded from PyTorch or TensorFlow files as graph representation, visualization of trained weights by means of (2) activation maps, (3) saliency map, (4) guided back propagation, (5) grad-CAM, (6) guided Grad-CAM, and (7) grad-CAM plus.</p>
+<p>The software supports arbitrary networks architectures for classification and semantic segmentation of image-like data and is currently being extended to multi-object detection and localization architectures.</p>
+<p>Neuroscope is comparable to systems like Tensorboard. The major difference is the support of exchangeable machine learning backends (TensorFlow and PyTorch), and the interactive use via a graphical user interface.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The example synthetic image of billet rolling process illustrates the capability of Neuroscope to analyze a given neural network (top left). The task is to segment the image regarding the class “billet” as a component of automatic optical  detection and tracking process. Using a saliency metric, a diffuse image of pixels sensitive to the class “billet” is computed (top right). The second visualization method called guided Grad-CAM shows clear regions of high activation in places of billets, as well as some localized areas of low activation (bottom left). The activation map computed by Guided Backpropagation method (bottom right) highlights pixels of high activation exactly at billet locations.  The analysis of these 3 types of visualization maps  raises the question: why the activation maps don’t show high activated pixels monotonously  within the bounds of billets. This observation could be the indicator of a poorly trained deep learning model or scarce training data.</p>
+<img src="neuroscope-figure-1.png">
+<p>Figure: Visualization of the class „billet“ using Neuroscope: top left: original image, top right: saliency map, bottom left: guided Grad-CAM, bottom right: guided backpropagation.</p>
+<p>
+
+<h3>Interfaces</h3>
+The system features a graphical user interface and is intended for interactive use only. The system allows to load network architectures and weights in TensorFlow and PyTorch format. It allows to export visualization results in common image formats. 
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+Neuroscope is available for Linux and Windows. It supports PyTorch and TensorFlow as backends.
+<p>
+
+<h3>License</h3>
+We provide a community version under GPL. For commercial licenses, contact DFKI directly (Tim.Dahmen@dfki.de).
+<p>
+
+<h3>TRL</h3>
+6, currently being raised to 7
+<p>
+
+<h3>References</h3>
+https://github.com/c3di/neuroscope
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Saarstahl.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Cybernetica Cognitive CENIT</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Cybernetica Cognitive CENIT
+<p>
+
+<h3>Defined in Task</h3>
+5.5 Cognitive Digital Twins
+<p>
+
+<h3>Short description</h3>
+<p>This is a planned extension of the existing Cybernetica CENIT that will add cognition to the application.</p>
+<p>The goals of the extension are to:</p>
+<ul>
+  <li>Add self-diagnosing capability to CENIT by use of data analysis
+  <li>Combine mechanistic modelling of physical processes with machine learning/ AI 
+  <li>Exploit big data sets from the process to improve the model 
+</ul>
+<p>Both generic functionality and application specific in the form of a new model interface will be added. The cognitive extension may either extend the current estimator (digital twin) or it may replace it entirely.</p>
+<p>Cybernetica CENIT already implements adaption in the form of parameter estimation.</p>
+<p>In addition we would like develop and implement methods for real-time and offline analysis of the estimator (digital twin) performance related to process data.</p>
+<p>In this way it should be possible to automatically classify types of errors: sensor failure, input error or model error. Ultimately, the goal will be to suggest model improvements based on this analysis.</p>
+<p>
+
+<h3>Example of usage</h3>
+<h4>Example 1: Error detection</h4>
+<p>The performance of the MPC system will eventually degrade over time due to changing plant conditions, i.e. increased plant-model-mismatch. To prevent poor controller performance, the error/performance degradation first must be detected. There are currently no self-diagnosing capabilities in CENIT. An important part of Cognitive CENIT will be the ability to perform self-diagnosis and detect when the controller performance is unsatisfactory. In the case where unacceptable levels of control performance degradation has been found, further action (such as error classification and error correction) is needed.</p>
+<p>
+<h4>Example 2: Error classification</h4>
+<p>Estimators are generally unable to distinguish between prediction deviations resulting from the following errors:</p>
+<ul>
+  <li>Faulty input data (requires correction or scepticism) 
+  <li>Faulty model (suggest adaption) 
+</ul>
+<p>Being able to distinguish between these errors is important because the required response is very different:</p>
+<p>In the case of input error, the appropriate response is some combination of correcting the faulty input signal and minimizing the faulty signal’s impact on the model-predictive control.</p>
+<p>This can include:</p>
+<ul>
+  <li>Using a default signal instead of the faulty signal, 
+  <li>Ignoring model state variables that are highly correlated with the faulty signal, and 
+  <li>Altogether turning off estimation for the affected data points. 
+</ul>
+<p>In the case of model error, the appropriate response is to try to adapt the model to most accurately reproduce the process data.</p>
+<p>An important goal for Cognitive CENIT will be to distinguish between these cases based on an offline training of a classification algorithm.</p>
+<p>
+<h4>Example 3:</h4> 
+<p>Situations where the model structure is incomplete or wrong may be identified using an automated analysis of the prediction error distributions. Currently Cybernetica CENIT estimators assume that the model structure is correct, and that the prediction error is normally distributed around a mean value, which the estimator tries to center at zero. In many cases this is not true, and significant deviation from normally distributed error may imply error in the model structure. Identifying this error is non-trivial and may be a well-suited task for an AI extension.</p>
+<p>
+
+<h3>Interfaces</h3>
+TBD
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<li>May use PostgreSQL database.
+<li>May use Python and some of its stat. analysis packages such as pandas, numpy, scipy, pyspark, etc.
+<p>
+
+<h3>License</h3>
+Cybernetica Cenit licenses are provided free of charge for the duration of the CogniTwin-project for project partners who need such license to execute their work in the project. Should the project result be taken into permanent use after the end of the project, licenses are provided on fair and reasonable terms as stated in the Grant Agreement.
+<p>
+
+<h3>TRL</h3>
+<p>Cybernetica CENIT: TRL 9</p>
+<p>Cybernetica Cognitive CENIT: TRL 1-2</p>
+<p>
+
+<h3>References</h3>
+n/a
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Hydro, Elkem.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

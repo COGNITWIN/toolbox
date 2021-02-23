@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>DT-Graph</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+DT-Graph - Digital Twin Graph support for simulation and cognition
+<p>
+
+<h3>Defined in Task</h3>
+n/a
+<p>
+
+<h3>Short description</h3>
+<p>The framework covers aspects related to Digital Twin data representation (graph-based data structures for assets data and processes), data storage (assets and time-series data), and support for discrete/continuous simulation (e.g., estimation of production capacity).</p>
+<p>The purpose of the framework is to provide the mechanisms to represent and store data in a way that can capture assets and time-series data, while at the same time can offer efficient access to the data and ability to use the stored data for various types of simulations (discrete/flow).</p>
+<p>The framework is meant to help factories IT personnel in the process of representing assets and processes within factories and storing data about them, and combining the information with real-time sensor data, to facilitate analytics tasks such as simulations.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>A typical usage of the framework is depicted below, where information about assets and processes is captured in a flexible graph data model (nodes representing assets, connections representing flows of parts between assets), and sensor data is connected to graph data, that in turn is used for analytical tasks such as simulations.</p>
+<img src="dt-graph-figure-1.png">
+<p>The illustration below depicts a UI of the implemented prototype, where a set of processing machines (nodes) and the flow of parts across the machines (arrows) is depicted, together with production capacity estimation based on discrete simulation of production at a certain point in time (colours depict various types of information based on sensor data).</p>
+<img src="dt-graph-figure-2.png">
+<p>
+
+<h3>Interfaces</h3>
+The prototype has API-level interfaces for data manipulation (CRUD operations on graph and timeseries data). In addition a simple GUI is provided for visualization of analytics tasks (as depicted above).
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+The prototype was implemented on a Python-based stack and 3rd party databases were used (e.g., InfluxDB for timeseries data, Neo4j for graph data).
+<p>
+
+<h3>License</h3>
+The implemented prototype is planned to be released as open source under a flexible license (e.g., Apache-2.0 License – to be finally decided when the prototype is publicly released).
+<p>
+
+<h3>TRL</h3>
+TRL4 – a protype based on a Python stack is implemented at this stage and validated in lab setting. 
+<p>
+
+<h3>References</h3>
+<a href="https://github.com/SINTEF-9012/dt-prototype">https://github.com/SINTEF-9012/dt-prototype</a> (The prototype is not yet publicly released).
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+The framework is to be checked for fit-for-purpose in all the pilots. It is expected that at least the data representation/storage/simulation is of high relevance in the pilots.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

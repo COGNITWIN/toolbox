@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>StreamPipes Siddhi-Processor</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+StreamPipes Siddhi-Processor
+<p>
+
+<h3>Defined in Task</h3>
+n/a
+<p>
+
+<h3>Short description</h3>
+<p>StreamPipes Siddhi-Processor is a component that enables analysis of data streams in a context of CEP (Complex Event Processing) using StreamPipes as underlying platform.</p>
+<p>Siddhi was used for its implementation, as it is a tool for building fully-fledged event-driven applications with possibility of Complex Event Processing.</p>
+<p>In current version (0.67.0), StreamPipes (SP) offers a Siddhi wrapper which wraps standard library for SP pipeline element creation. It provides mapping of SP pipeline element’s input/output to the Siddhi application’s input/output, as well as means of writing and executing queries that can be customized with user provided parameters during element configuration.</p>
+<img src="streampipes_siddhi-processor-figure-1.png">
+<p>Figure 10: Siddhi wrapper that enables users to utilize CEP inside StreamPipes element</p>
+<p>Currently, SP Siddhi wrapper supports part of commonly-used Siddhi EPL functionalities, with the rest of them, as well as other features and extensions, yet to be implemented. In addition, there are a few problems with SP UI and API when Siddhi processor is employed.</p>
+<p>This implementation of Siddhi wrapper requires from users to write Siddhi queries as plain String objects. In following version (0.68.0), StreamPipes (SP) will provide object model representation of Siddhi EPL (Event Processing Language) for writing Siddhi queries implemented as a part of SP Siddhi wrapper. Significant changes to the Siddhi wrapper implementation are also expected.</p>
+<p>SP Siddhi-Processor's purpose is to extract information and identify meaningful events (opportunities and threats) such as patterns, relationship between events, etc. It would receive its input from SP element(s), execute written query on received data, and forward execution result to other SP element(s).</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The goal of this element is to count number of occurrences of interest in a given set of consecutive inputs. This use-case corresponds to the CEP notion of a window, i.e., we want to detect a specific event in a window of inputs. Hence, the resulting query looks like this, with the window size being 5:</p>
+<p>define stream InputStream(numerical_parameter int);</p>
+<p>from InputStream#window.length(5)[numerical_parameter >= 50]</p>
+<p>select count() as count</p>
+<p>insert into OutputStream;</p>
+<p>This query counts how many inputs had numerical_parameter value greater than 50. Therefore, in this case, numerical_parameter value greater than 50 represents an occurrence of interest.</p>
+<p>For this element, window size, parameters of interest and conditions, are fully customizable and can be changed during pipeline editing phase.</p>
+<p>Output of this component can be used by other SP pipeline elements to raise an alert, for further processing, visualization, etc.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>This component receives input from any element that provides numerical output that is of interest. In the case of test, output from MEWMA is used (count of outliers).</p>
+<p>After query execution, it outputs count of inputted values that correspond to the condition.</p>
+<p>Since this component is implemented in a way that allows custom values for window length and number of occurrences, a user interaction is required. In essence, when user creates pipeline and employs this component, a corresponding window pops up which prompts user to enter said values.</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>StreamPipes (and this component, as well) is available for Linux, Windows and Mac OS X.</p>
+<p>This component was developed on Linux machine. Docker and Docker Compose are required in order to run pipelines.</p>
+<p>
+
+<h3>License</h3>
+Licence: proprietary
+<p>
+
+<h3>TRL</h3>
+TRL6
+<p>
+
+<h3>References</h3>
+<li>StreamPipes - <a href="https://github.com/apache/incubator-streampipes/tree/rel/0.67.0">https://github.com/apache/incubator-streampipes/tree/rel/0.67.0</a>
+<li>StreamPipes extensions - <a href="https://github.com/apache/incubator-streampipes-extensions/tree/rel/0.67.0">https://github.com/apache/incubator-streampipes-extensions/tree/rel/0.67.0</a>
+<li>StreamPipes Siddhi wrapper - <a href="https://github.com/apache/incubator-streampipes/tree/rel/0.67.0/streampipes-wrapper-siddhi">https://github.com/apache/incubator-streampipes/tree/rel/0.67.0/streampipes-wrapper-siddhi</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+The component is currently only used for the Sidenor pilot. However, it is intended to be used by other pilots where there is a need e.g., to count all occurrences of interest, for trend detection, etc.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>SpinPro</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+SpinPro – Speech support in Production
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.2
+<p>
+
+<h3>Short description</h3>
+<p>The goal of this component is to formalize human tacit knowledge and make it available to other software components. This will be done by generating machine-processable rules based on spoken input. In addition, the knowledge base will be extended by the "discovered" rules, while at the same time ensuring the consistency of the knowledge base (e.g., avoiding contradictory rules).</p>
+<p>The component will be realized by combining three different types of technologies and by using commodity software:</p>
+<ul>
+  <li>Speech2Text to convert audio to text by using open source software for speech recognition like cmuSphinx, DeepSpeech, etc. 
+  <li>Shallow NLP to analyse the content by using the background knowledge (e.g. provided in a form of domain-related vocabulary); 
+  <li>Formalisation of extracted information in form of Event-Condition-Action rules which will be evaluated by e.g. Siddhi engine or the VISPAR component (more information is provided in D4.2 deliverable as result of T4.4). 
+</ul>
+<p>
+
+<h3>Example of usage</h3>
+<img src="spinpro-figure-1.png">
+<p>
+
+<h3>Interfaces</h3>
+<p>In – spoken text</p>
+<p>Out -rule(s)</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>SpinPro is divided in several components as illustrated in Figure below. The process is split into two parts, the speech recognition and the rule creation. Each part is capsulated in one program component. The speech recognition is performed in the Speech to Text component (StTC) and the rule creation in the Core component (Core). The Main component (MC) manages the StTC and the Core. Furthermore, the MC provides the APIs for user interaction and contains the entry point of SpinPr. Those three components use a fourth component called Configuration component (Config). The Config provides a logging framework, the application preferences and messages in multiple languages used as error and logging messages. Moreover, the Config contains a framework for the loading of services.  Services are user definable and exchangeable components, that are loaded at the start of the application.  The Core and the StTC both use services in order to maximize customizability. All services and all components, besides the MC, use a fifth SpinPro component called Service Library (SL). The SL provides the definitions for all interfaces used in services. Furthermore, it contains definitions of the predefined actions and several parsers for arithmetic and Boolean expressions as well as for parsing single variables and events.</p>
+<img src="spinpro-figure-2.png">
+<p>
+
+<h3>License</h3>
+License will be defined when the component is ready.
+<p>
+
+<h3>TRL</h3>
+TRL4
+<p>
+
+<h3>References</h3>
+<p>1. Librispeech: An ASR corpus based on public domain audio books. Panayotov, V., et al. 2015. 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). ss. 5206-5210.</p>
+<p>2. RETURNN as a generic flexible neural toolkit with application to translation and speech recognition. Zeyer, Albert, Alkhouli, Tamer og Ney, Hermann. 2018.</p>
+<p>3. Wang, Yiming, et al. Espresso: A Fast End-to-end Neural Speech Recognition Toolkit. Espresso: A Fast End-to-end Neural Speech Recognition Toolkit. 2019.</p>
+<p>4. Povey, Daniel. Kaldi. Kaldi. [Internett] 2020. https://kaldi-asr.org/.</p>
+<p>5. Inc., Alpha Cephei. Vosk. Vosk. [Internett] 2020. https://alphacephei.com/en/.</p>
+<p>
+<p>Frameworks</p>
+<ul>
+  <li>Sphinx-4 - <a href="https://github.com/cmusphinx/sphinx4">https://github.com/cmusphinx/sphinx4</a>
+  <li>DeepSpeech - <a href="https://github.com/mozilla/DeepSpeech">https://github.com/mozilla/DeepSpeech</a>
+  <li>Kaldi - <a href="http://kaldi-asr.org/doc/about.html">http://kaldi-asr.org/doc/about.html</a>
+  <li>VOSK - <a href="https://github.com/alphacep/vos">https://github.com/alphacep/vos</a>
+  <li>Neuroscope - <a href="https://github.com/c3di/neuroscope">https://github.com/c3di/neuroscope</a>
+</ul>
+
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+TBD
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

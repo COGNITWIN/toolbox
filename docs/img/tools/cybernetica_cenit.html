@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Cybernetica CENIT</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Cybernetica CENIT 
+<p>
+
+<h3>Defined in Task</h3>
+5.4 Hybrid Digital Twins
+<p>
+
+<h3>Short description</h3>
+<p>Cybernetica CENIT is a tool for online estimation and nonlinear model predictive control. It can be used as both a soft sensing application and a control application.</p>
+<p>Model Predictive control is an advanced control method where a mathematical model of the process is used to predict future behavior. The predictions from the model are used in a mathematical optimization algorithm that calculates the optimal process inputs in order to achieve optimal future behavior of selected variables in the process. Constraints and setpoints may be imposed both on the manipulated process inputs variables and the controlled process output variables. Model predictive control also has the advantage that couplings between variables in the process are taken into account.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>Main components of Cybernetica CENIT:</p>
+<img src="cybernetica_cenit-figure-1.png">
+<p>Cybernetica CENIT consists of a generic part and an application-specific part, namely the process model. A Cybernetica CENIT application is defined as Cybernetica CENIT and some process model together.</p>
+<p>The following are the main components of a Cybernetica CENIT application:</p>
+<ul>
+  <li><b>CenitKernel:</b>	This is the main component of Cybernetica CENIT. It implements communication with the process control system and the calculation algorithms (estimator and nonlinear model predictive controller).
+  <li><b>CenitMMI:</b> This is an engineering interface used to configure and supervise CenitKernel, mainly during the engineering phase of the project. The operators interface is normally integrated in the existing DCS interface.
+  <li><b>Process model:</b>	This is the application-specific part of a Cybernetica CENIT application. It implements a mathematical representation of the process that is controlled. 
+  <li><b>Database:</b> An optional database for logging parameters and calculated data from CenitKernel. The data is used both by CenitMMI and for offline data analysis, and can be used to trend inputs, states and other calculated values.
+  <li><b>Control system:</b> This is the process control system (DCS/ PLC), which handles the low-level communication with the process. This system is not a part of Cybernetica CENIT and should implement an OPC server on a standard form to handle the communication with CenitKernel. Both OPC Classic and OPC UA interfaces are supported by Cenit. The communication includes process measurements, manipulated variables and possibly other variables as well.
+</ul>
+<p>The model component is implemented as a Microsoft Windows dynamic link library (DLL). One or more model interfaces can be implemented in such a DLL, depending on which calculation modules shall be used. It is not necessary to implement unused interfaces.</p>
+<p>The interfaces do not depend on each other, and it is possible to implement different models for each interface, i.e., a complex model for the simulator interface and a simpler model for the controller. However, it is quite common to implement the same model for all the interfaces. The figure below shows how to do this. In this figure, there is a common inner model code base for all the interfaces:</p>
+<img src="cybernetica_cenit-figure-2.png">
+<p>The available interfaces are:</p>
+<ul>
+  <li>Sim interface: Used to simulate the process.
+  <li>GenEst interface: Used by the Kalman Filter.
+  <li>MHE interface: Used by the Moving Horizon Estimator.
+  <li>Nmpc interface: Used by the non-linear predictive controller
+  <li>ModelFit interface: Used by Cybernetica ModelFit.
+  <li>AsyncData interface: Used by Cybernetica Cenit to handle input data that requires special handling; e.g. registration of process event data.
+</ul>
+<p>
+
+<h3>Interfaces</h3>
+<p>Data can be presented to the user by using Cybernetica CenitMMI, or extracted from the database using the included tool getdbdata.</p>
+<p>Example of CenitMMI displaying some historical trend and prediction plots for some manipulated variables:</p>
+<img src="cybernetica_cenit-figure-3.png">
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+May use PostgreSQL database.
+<p>
+
+<h3>License</h3>
+Cybernetica Cenit licenses are provided free of charge for the duration of the CogniTwin-project for project partners who need such license to execute their work in the project. Should the project result be taken into permanent use after the end of the project, licenses are provided on fair and reasonable terms as stated in the Grant Agreement.
+<p>
+
+<h3>TRL</h3>
+9 - Commercial product.
+<p>
+
+<h3>References</h3>
+<a href="http://cybernetica.no/technology/model-predictive-control/">http://cybernetica.no/technology/model-predictive-control/</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Hydro, Elkem.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

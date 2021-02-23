@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Big Data Pipelines Deployment Framework (BDPDF)</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Big Data Pipelines Deployment Framework
+<p>
+
+<h3>Defined in Task</h3>
+n/a
+<p>
+
+<h3>Short description</h3>
+<p>A framework to allow high-level design/specification of scalability aspects of Big Data processing pipelines and their effective and efficient deployment and execution on the continuum computing infrastructure (heterogenous Cloud/Fog/Edge infrastructure).</p>
+<p>The purpose of such a framework is to lower the technological barriers of entry to the incorporation of Big Data pipelines in organizations' business processes regardless of the hardware infrastructure. The framework requires new languages, methods, infrastructures, and software for managing Big Data pipelines such that Big Data pipelines can be easily set up in a manner which is trace-able, manageable, analyzable and optimizable and separates the design- from the run-time aspects of their deployment, thus empowering domain experts to take an active part in their definition.<p></p>
+<p>The purpose of such a framework is to allow specification of data processing pipelines by non-IT experts at an abstraction level suitable for pure data processing, in which pipeline specifications are realized (deployed and executed) using instances of a pre-defined set of scalable and composable software container templates (corresponding to step types in pipelines).</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>The figure below depicts a typical workflow in the use of the framework. Users typically specify high-level descriptions of workflow steps and their dependencies using the Workflow Modeling Manager. This component handles storage configurations, data preparation, and step-level data processing and transformation operations. The output of the component is a deployable data workflow that feeds into the Deployment Service Runtime – a component representing the collection of hybrid computing resources where workflows steps are deployed. Data Storage/Sharing Ecosystem is responsible for storing intermediate and output data and the data exchange mechanism during workflow execution.</p>
+<img src="bdpdf-figure-1.png">
+<p>An example of workflow specification depicted below and use a DSL specifically designed to handle Big Data pipelines.</p>
+<img src="bdpdf-figure-2.png">
+<p>
+
+<h3>Interfaces</h3>
+The framework receives as input the pipeline to be executed and the resources available, then it deploys and execute the pipeline on the available resources.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+Sub-components are architected using microservices.
+<p>
+
+<h3>License</h3>
+Apache-2.0 License
+<p>
+
+<h3>TRL</h3>
+TRL4 – a protype has been implemented at this stage and a set of experiments were carried out to test scalability of the solution.
+<p>
+
+<h3>References</h3>
+<a href="https://github.com/SINTEF-9012/ebw-prototype">https://github.com/SINTEF-9012/ebw-prototype</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+<p>The purpose of this framework is to be able to effectively and efficiently model, deply, and execute Big Data pipelines on heterogenous infrastructures (Cloud-Fog-Edge). For COGNITWIN, this framework is relevant for the pilots that require processing of large amounts of data.</p>
+<p>The Big Data Workflow framework was part of the initial COGNITWIN Toolbox baseline and has evolved into a software protype to date. Even if it has not been directly applied in the COGNITWIN pilots during the first phase, it can be a relevant framework in the subsequent phases for scalable deployment and execution of data pipelines.  It is thus retained for consideration for the next phase of the project.</p>
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

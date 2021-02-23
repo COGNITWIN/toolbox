@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Bonzai</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Bonzai
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.3: Deep Learning Performance
+<p>
+
+<h3>Short description</h3>
+<p>Bonzai is Scortex python library handling everything related to deep learning on images.</p>
+<p>Bonzai is built on top of keras / tensorflow. It uses as input a connection to a mongo database for annotations and meta-information (dates, part reference, acquisition system version, ...), as well as an azure filesystem for images storing. The main output is the production of deep learning model in tf.keras format (topology in .json and weights in .h5).</p>
+<p>With this library, Scortex engineers manipulate and clean images and their metadata. They use it to train deep learning models and evaluate properly these models.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>Below is an example image from our unsupervised anomaly detection demonstrator.</p>
+<p>The user can train a model with a few un-annoted images and the model will detect anomalies.</p>
+<p>The result shows the original image with a defect score and a defect localization. Here is detects a tiny pen mark on the business card the model was trained on.</p>
+<img src="bonzai-figure-1.png">
+<p>Example of detections on our supervised demonstrator (less constrained). The part goes on the conveyor belt. Inside the Scortex dark “box” there are 2 cameras filming continuously 1920x1200 colored images. One report is created per part. The (defect) detection are shown with closeups on the bottom of the screen.</p>
+<img src="bonzai-figure-2.png">
+<p>There is currently no frontend to train supervised models using only the mouse but we are hoping to be able to work on this in 2021.</p>
+<p>
+
+<h3>Interfaces</h3>
+Bonzai connects to mongodb and other databases system to get images and meta-data (ex: annotations). Outputs are deep learning keras/tensorflow models and pipelines to be used in productions.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+keras/tensorflow, mongodb.
+<p>
+
+<h3>License</h3>
+Proprietary. In development, remains the property of Scortex. Will be used by Scortex exclusively
+<p>
+
+<h3>TRL</h3>
+TRL 7
+<p>
+
+<h3>References</h3>
+<li><a href="https://scortex.io/batch-norm-folding-an-easy-way-to-improve-your-network-speed/">https://scortex.io/batch-norm-folding-an-easy-way-to-improve-your-network-speed/</a>
+<li><a href="https://scortex.io/robustness-and-repeatability-of-modern-deep-neural-networks-a-review/">https://scortex.io/robustness-and-repeatability-of-modern-deep-neural-networks-a-review/</a>
+<li><a href="https://scortex.io/extending-selective-back-propagation-to-segmentation-focus-biggest-losers/">https://scortex.io/extending-selective-back-propagation-to-segmentation-focus-biggest-losers/</a>
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Saarstahl, Sumitomo
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

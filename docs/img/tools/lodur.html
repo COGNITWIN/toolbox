@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Lodur</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Lodur - Frame grabber FPGA Compute Platform
+<p>
+
+<h3>Defined in Task</h3>
+Task 4.4: Realtime sensor/data processing
+<p>
+
+<h3>Short description</h3>
+<p>Lodur is a frame grabber. It is responsible for connecting a camera to an FPGA platform (Honir).</p>
+<p>This tool is a piece of software design that has to be loaded on a board containing an FPGA (Xilinx VU9P for example) and a QSFP+ network interface.</p>
+<p>Lodur is an IP core responsible of grabbing images in gigEvision standard usually supported by industrial cameras. It is also responsible to send the received stream into another stream understandable by the machine learning inference engine Honir (done in task 4.4 too).</p>
+<p>Lodur performs data health checks while receiving the images such as ensuring that the image is complete, or that the format is respected. It can also perform a pre-processing step on the mage if required, such as pixel format conversion from YUV to RGB.</p>
+<p>The advantages of this tool are:</p>
+<li>Support of gigEvision frame grabbing on FPGA
+<li>Support pixel format conversion YUV to RGB
+<li>Possibility to support 10gigEvision protocol (10x gigEvision) in the next versions
+<li>Possibility to support multi camera stream inputs in the next versions
+<li>Smooth integration with Honir
+<p>
+
+<h3>Example of usage</h3>
+<img src="lodur-figure-1.png">
+<p>Above: An industrial camera takes picture and send it over the gigEvision link. The gigEvision stream rely on UDP packet transfer. It means that the image is cut in a number of packets (sub part of the image) that are sent in sequence to Lodur.</p>
+<p>Lodur receive the package, perform health checks on the image, perform pre-processing if activated and cut the image in pixels and then send it to the next module: Honir (inference engine).</p>
+<p>Lodur is able to receive images from a camera at maximum camera streaming speed: 1gpbs. We tested it with a computer simulating the camera with a higher throughput and it is able to support up to 1.8 gbps. This means it is possible to support more powerful cameras that stream at more than 1 gpbs.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>At a system level:</p>
+<p>IN: gigEvision video stream</p>
+<p>OUT: pixel stream</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+This module can work in standalone. It is, however, necessary for Honir (inference engine) to work properly.
+<p>
+
+<h3>License</h3>
+In development, remains the property of Scortex. Will be used by Scortex exclusively
+<p>
+
+<h3>TRL</h3>
+TRL5
+<p>
+
+<h3>References</h3>
+https://www.visiononline.org/vision-standards-details.cfm?type=5
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+The Honir platform will be considered as a way to run the tracking system for the Saarstahl  use case. In which case, Lodur will be used to maintain the best FPS  (frame per second) performances possible. But it could be extended to any other pilots running deep learning on images.
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

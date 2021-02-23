@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Honir</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Honir - Machine learning inference FPGA Compute Platform
+<p>
+
+<h3>Defined in Task</h3>
+Task 4.4: Realtime sensor/data processing
+<p>
+
+<h3>Short description</h3>
+<p>This tool allows to perform machine learning / deep learning algorithm inference in real time on images data source.</p>
+<p>This tool is a piece of software design that have to be loaded on a board containing an FPGA (Xilinx VU9P for example) and a QSFP+ network interface.</p>
+<p>Honir is an IP core responsible of performing machine learning inference. Thanks to a loaded quantized machine learning model converted with keras2tool (produced in task 5.3), this module consumes images coming from Lodur tool (produced in task 4.4 too) and produces the tensor results in a stream enhanced with metadata.</p>
+<p>The advantages of this tool are:</p>
+<p>Real time computing thanks to FPGA platform that allows high parallelism computing</p>
+<p>Performance / Watt better than usual machine learning platform (CPUs, GPUs)</p>
+<p>Industrial components thanks to FPGA and electronic boards build for constraints environments</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>A machine learning model was generated with the VHDL implementation of the layers. This machine learning model correspond to a demonstration that is used for Scortex demonstration purposes that allows defect detection on parts fundable in the market, like bricks parts, electrical switch parts and some handles.</p>
+<p>This topology allows the inference of up to 100 images per seconds with a resolution of 1920x1200. That represent a huge amount of compute that is done in an efficient way with less than 10 milliseconds of latency</p>
+<img src="honir-figure-1.png">
+<p>Images are provided in a convenient format by the Lodur tool (“frame grabber”, produced in task 4.4). Inference is ran on images by Honir and the results produced allow to draw a red box around the defect and also provide a confidence of detection in the source image. The following image shows a zoom on the part and the localization of the defect.</p>
+<img src="honir-figure-2.png">
+<p>To ease the use of Honir, we included it in our demonstrator to allow live stream of images and live detections.</p>
+<img src="honir-figure-3.png">
+<p>This image represents the Scortex interface that shows a part moving under the camera with a Machine learning detection at 100 FPS.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>At a system level: </p>
+<p>IN : video stream (provided by Lodur)</p>
+<p>OUT : prediction matrix / tensor</p>
+<p>
+<p>At a user level:</p>
+<p>IN : video stream</p>
+<p>OUT : results of machine learning inference in a matrix or shown in live on images</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>This module takes input images that are sent by the frame grabber Lodur (see decicated component).</p>
+<p>This module is configured based on a keras2RTL tool conversion. Indeed, the user first design a keras model, then use the keras2RLTconvertor, and then can use Honir for inference with this model.</p>
+<p>
+
+<h3>License</h3>
+Honir is in development and remains the property of Scortex. For now, it will be used and integrated by Scortex exclusively.
+<p>
+
+<h3>TRL</h3>
+TRL5
+<p>
+
+<h3>References</h3>
+<li>https://hadrienj.github.io/posts/Deep-Learning-Book-Series-2.1-Scalars-Vectors-Matrices-and-Tensors/
+<li>https://determined.ai/product/?gclid=Cj0KCQiAmfmABhCHARIsACwPRABr1O5Ob3NjcgABjrEkczdy7Hl_3BevgmIDJqYAnRj9dTYR75nDWJcaAiZQEALw_wcB 
+<li>https://www.xilinx.com/products/silicon-devices/fpga/virtex-ultrascale-plus.html 
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+The platform will be considered as a way to run the tracking system for the Saarstahl use case. But it could be extended to any other pilots running deep learning on images
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

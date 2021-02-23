@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>MAI</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+MAI - Collection of weather data
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.1: Plant Digital Twins with ML/AI
+<p>
+
+<h3>Short description</h3>
+<p>The MET API Interface (MAI for short) is a user interface to FROST, the API developed by the Norwegian Meteorological Institute (MET) which enables public access to weather data. MAI is a software bundle written in Python and is intended to be used as a standard Python module.</p>
+<p>The purpose of MAI is to simplify data retrieval from FROST by providing a streamlined user interface. A user can select a location, a time interval, and a series of measurements, and MAI takes care of contacting the correct access point in FROST, submitting a properly composed request, and receiving and handling the response. MAI allows querying FROST for three main purposes: 1) Retrieve all available weather-stations names in a given area (at municipality level); 2) retrieve a list of all available measurements at a selected location or municipality; 3) retrieve all data available for the selected measurements at a chosen location and time interval. The weather data is collected in a properly formatted Pandas DataFrame for ease of use.</p>
+<p>The modularity of MAI allows for flexible development and extension of its features.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>To allow MAI to access FROST, a user must first register and receive its client ID. This is done visiting <a href="https://frost.met.no/auth/requestCredentials.html">https://frost.met.no/auth/requestCredentials.html</a> and registering with an email address. MET's API <a href="https://frost.met.no/termsofuse2.html">terms of use</a> as well the <a href="https://www.met.no/en/About-us/privacy">privacy statement</a> hold in this steps.</p>
+<p>After registration, weather data can be retrieved by a user in one simple call to MAI. The figure below illustrates a minimal usage example.</p>
+<img src="mai-figure-1.png"></img>
+<p>Figure: Minimal usage example for retrieving weather data using MAI.</p>
+<p>
+
+<h3>Interfaces</h3>
+The software is intended to be run as a standard Python module, imported in a script and run either in terminal or in a notebook. Most functions contained in MAI accept as input location names, list of measurements, and time intervals (or a combination of those). The returned output can be either messages on the screen containing the requested information, or a Pandas DataFrame containing the weather data, formatted with timestamps in rows and the different measurements in columns. Errors are handled through descriptive explanations and suggestions to the user.
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+MAI is available on any platform that can run Python 3.x.
+<p>
+
+<h3>License</h3>
+n/a
+<p>
+
+<h3>TRL</h3>
+n/a
+<p>
+
+<h3>References</h3>
+n/a
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+Hydro
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>

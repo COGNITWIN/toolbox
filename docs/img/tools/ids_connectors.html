@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Platform: Tools & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>IDS Connectors</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+IDS Connectors
+<p>
+
+<h3>Defined in Task</h3>
+T4.2
+<p>
+
+<h3>Short description</h3>
+<p>The IDS Reference Architecture Model positions itself as an architecture that links different cloud platforms through policies and mechanisms for secure data exchange and trusted data sharing (through the principle of data sovereignty). Over the IDS Connector, industrial data clouds, individual enterprise clouds, on-premise applications and individual, connected devices can be connected to the International Data Space ecosystem.</p>
+<p>Key participants (actors in the system) in an IDS Data Space system would be the Data Owner, Data Provider, Data Consumer, Data User or Broker Service provider. The complete landscape of roles, their functionalities and relationships result in a model depicted in the following Figure 27.</p>
+<img src="ids_connectors-figure-1.png">
+<p>Figure 27. Interaction between technical components of IDS Reference Architecture Model</p>
+<p>The Connector is the central technological building block of IDS. It is a dedicated software component allowing Participants to exchange, share and process digital content. At the same time, the Connector ensures that the data sovereignty of the Data Owner is always guaranteed. The Broker Service Provider is an intermediary that stores and manages information about the data sources available in IDS. The activities of the Broker Service Provider mainly focus on receiving and providing metadata that allow provider and consumer connectors to exchange data. The App Provider role is optional in IDS, and its main role is to develop applications that can be used by both data providers and consumers in the data space. Applications are typically downloaded from the remore app store, and run inside the containerized connector.</p>
+<p>Establishing trust for data sharing and data exchange is a fundamental requirement in IDS. The IDS-RAM defines two basic types of trust: 1) Static Trust, based on the certification of participants and core technical components, and 2) Dynamic Trust, based on active monitoring of participants and core technical components. For data sharing and data exchange in the IDS, some preliminary actions and interactions are required. These are necessary for every participant, and involve a Certification Body, Evaluation Facilities, and the Dynamic Attribute Provisioning Service (DAPS). Figure 28 illustrates the roles and interactions required for issuing a digital identity in IDS, and these interactions are briefly listed here:</p>
+<ol>
+  <li>Certification request: This is a direct interaction between a participant and an evaluation facility to trigger an evaluation process based on IDS certification criteria. 
+  <li>Notification of successful certification: The Certification Body notifies the Certification Authority of the successful certification of the participant and the core component. Validity of both certifications must be provided. 
+  <li>Generating the IDS-ID: The Certification Authority generates a unique ID for the pair (participant and component) and issues a digital certificate (X.509). 
+  <li>Provisioning of X.509 Certificate: The Certification Authority sends a digital certificate (X.509) to the participant in a secure and trustworthy way and notifies the DAPS. 
+  <li>Register: After the digital certificate (X.509) is deployed inside the component, the component registers at the DAPS. 
+  <li>DTM Interaction: The Dynamic Trust Monitoring (DTM) implements a monitoring function for every IDS Component, and DTM and DAPS then exchange information on the behavior of the component, e.g. about security issues (vulnerabilities) or attempted attacks.
+</ol>
+
+<p>
+
+<h3>Example of usage</h3>
+n/a
+<p>
+
+<h3>Interfaces</h3>
+n/a
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+IDS architecture and solutions. 
+<p>
+
+<h3>License</h3>
+Proprietary/ Subject to license
+<p>
+
+<h3>TRL</h3>
+The current TRL is 6
+<p>
+
+<h3>References</h3>
+n/a
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+TBD
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>
