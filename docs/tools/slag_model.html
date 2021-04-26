@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Toolbox Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Slag model</h2></div>
+<div class="panel-body-1">
+
+<h3>Name</h3>
+Slag model
+<p>
+
+<h3>Defined in Task</h3>
+Task 5.1: Plant Digital Twins with ML/AI
+<p>
+
+<h3>Short description</h3>
+<p>The predictive slag model will be an integral part of a proposed dynamic online model for the post tap hole processing of liquid ferrosilicon, which will utilize measured process data in real-time and continuously update the optimal process route.</p>
+<p>The slag model will use data from the furnace, previous tap hole readings, and an IR camera in the tapping area that will detect and quantify the amount of slag that follows the liquid ferrosilicon as it is being drained from the furnace. By employing recurrent neural networks, the model predicts the amount of slag to show up in the next tapping, or next few tappings.</p>
+<p>Such a model has several uses: for one, it can be used to analyze the relationship between the condition of the furnace and slag, and thus increasing the understanding of slag generation, either by confirming current assumptions or revealing unknown causes. Secondly, it will provide operators with useful operation and be and important part of a larger model of the system.</p>
+<p>
+
+<h3>Example of usage</h3>
+<p>In the Elkem pilot, the slag model will be a component of the hybrid digital twin. There, a predictive control scheme will calculate the optimal amount of each addition to maximize the recycling of scrap material while keeping the composition and temperature within the required specification. The results will be presented visually to the operator, who will decide on whether to follow the suggestions given by the optimization or not.</p>
+<img src="slag_model-figure-1.png">
+<p>Figure: The slag model is a component in the Digital Twin in the Elkem pilot.</p>
+<p>
+
+<h3>Interfaces</h3>
+<p>The model is written as a Python script, to be run either in terminal or in the Jupyter notebook web application. It can be amended to handle input data in different formats, e.g. csv or xlsx files. The input parameters should be time series, which may be of varying length and have different frequencies. The user will be alerted of errors, with descriptive explanations and suggestions for how to remedy.</p>
+<p>The output of the online model will be the predicted slag in the upcoming tappings, for a time interval set by the user. This will be given either directly on a screen or as data sent to other components of the digital twin. On the screen it can be displayed both as numerical values and plots. If desirable, warnings of predicted high slag content may be given with explanatory text.</p>
+<p>
+
+<h3>Subordinates and platform dependencies</h3>
+<p>The model is implemented in Python 3 and uses the free and open-source libraries Keras and TensorFlow.</p>
+<p>
+
+<h3>License</h3>
+n/a
+<p>
+
+<h3>TRL</h3>
+n/a
+<p>
+
+<h3>References</h3>
+n/a
+<p>
+
+<h3>To be considered in particular for the following COGNITWIN pilots</h3>
+<p>Elkem pilot.</p>
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>
