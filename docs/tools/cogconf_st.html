@@ -29,32 +29,44 @@
 <div style="margin-bottom: 1em;"></div>
 
 <section class="panel panel-info">
-<div class="panel-heading"><h2>CogConf_ST</h2></div>
+<div class="panel-heading"><h2>Cognition-based Decision Making Configurator for StreamPipes-based Toolbox (CogConf_ST)</h2></div>
 <div class="panel-body-1">
 
 <h3>Name</h3>
-n/a
-<p>
+<p>Cognition-based Decision Making Configurator for StreamPipes-based Toolbox (CogConf_ST)</p>
 
 <h3>Defined in Task</h3>
-n/a
-<p>
+<p>Task 4.4</p>
 
 <h3>Short description</h3>
-n/a
-<p>
+<p>This service enables an efficient configuration of the decision making module in the StreamPipes-based Toolbox.</p>
+
+<p>It is based on the usage of Complex Event Processing (Siddhi engine) and performs CEP query on received data.</p>
+
+<p>It provides application of complex logic to the “main” outputs of this pipeline (results of various analytical methods).</p>
+
+<p>In addition, this element provides point of connection for this and previous pipeline – Complex Event Processing can be applied on outputs of multiple pipelines connecting them into one complex pipeline.</p>
+
+<img src="cogconf_st-figure-1.png">
 
 <h3>Example of usage</h3>
-n/a
-<p>
+<p>In the Sidenor pilot it is used for monitoring the degradation of the ladle. Some examples of the configuration.</p>
+
+<p>Test whether there were more than M anomalies in a single heat during time window of length N. For example, if there were more than 10 anomalies in a time window of 5 minutes, raise a warning. (uses output from MEWMA element).</p>
+
+<p>Test whether there were too many anomalies in single heat with same root-cause. For example, if there were more than 100 anomalies with the same root-cause parameter, this can indicate that some sensor or part of machine is faulty and should be checked. (Uses output from MEWMA element.)</p>
+
+<p>During last N heats, cycle is classified as 1 (indicating that the degradation is greater than given threshold) with an increasing probability (certainty). This can indicate that the ladle will soon be unusable and should be monitored closely or even repaired/replaced.</p>
+
+<p>Test whether during the last N heats there were more than M anomalies and that cycle was classified as 1 (indicating that the degradation is greater than given threshold).</p>
+
+<p>Test whether during the last N heats there were more than M anomalies and that cycle was classified as 0 (indicating that the degradation is lesser than given threshold) - extension to the implemented query in pipeline #2.</p>
 
 <h3>Interfaces</h3>
-n/a
-<p>
+<p>The service is implemented as a pipeline in StreamPipes.</p>
 
 <h3>Subordinates and platform dependencies</h3>
-n/a
-<p>
+<p>The model is implemented in Python 3 and uses the free and open-source libraries Keras and TensorFlow.</p>
 
 <h3>License</h3>
 n/a
@@ -69,8 +81,7 @@ n/a
 <p>
 
 <h3>To be considered in particular for the following COGNITWIN pilots</h3>
-n/a
-<p>
+<p>Sidenor pilot.</p>
 
 </div>
 </section>

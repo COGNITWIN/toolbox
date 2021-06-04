@@ -29,11 +29,11 @@
 <div style="margin-bottom: 1em;"></div>
 
 <section class="panel panel-info">
-<div class="panel-heading"><h2>HyDes_ST</h2></div>
+<div class="panel-heading"><h2>Hybrid model Designer for StreamPipes-based Toolbox (HyDes_ST)</h2></div>
 <div class="panel-body-1">
 
 <h3>Name</h3>
-n/a
+Hybrid model Designer for StreamPipes-based Toolbox (HyDes_ST)
 <p>
 
 <h3>Defined in Task</h3>
@@ -41,20 +41,58 @@ n/a
 <p>
 
 <h3>Short description</h3>
-n/a
-<p>
+<p>StreamPipes Siddhi-Processor is a component that enables analysis of data streams in a context of CEP (Complex Event Processing) using StreamPipes as underlying platform.</p>
+
+<p>In current version (0.67.0), StreamPipes (SP) Siddhi-Processor requires from users to write Siddhi queries as plain String objects. It is implemented as a wrapper that provides means of query execution and mapping of SP pipeline element’s input/output to the Siddhi application’s input/output, as well.</p>
+
+<p>Currently, SP Siddhi wrapper supports part of commonly-used Siddhi EPL functionalities, with the rest of them, as well as other features and extensions, yet to be implemented. In addition, there are a few problems with SP UI and API when Siddhi processor is employed.</p>
+
+<p>In following version (0.68.0), StreamPipes (SP) will provide object model representation of Siddhi EPL (Event Processing Language) for writing Siddhi queries implemented as a part of SP Siddhi wrapper. Significant changes to the Siddhi wrapper implementation are also expected.</p>
+
+<p>SP Siddhi-Processor's purpose is to extract information and identify meaningful events (opportunities and threats) such as patterns, relationship between events, etc. It would receive its input from SP element(s), execute written query on received data, and forward execution result to other SP element(s).</p>
 
 <h3>Example of usage</h3>
-n/a
-<p>
+<p>Currently, implemented component’s input represents an output from MEWMA analysis done in the previous SP pipeline element, as shown in following image. Element that performs MEWMA is labeled with SM and SP Siddhi-Processor that executes query is labeled as SC.</p>
+
+<img src="hydes_st-figure-1.png">
+
+<p>MEWMA output represents a list of detected outliers along with their time of occurrence.</p>
+
+<p>The goal of this component is to detect whether there were more than N outliers in the previous M consecutive inputs (lists of outliers). Therefore, it is implemented to output a total number of such inputs. This use-case corresponds to the CEP notion of a window, i.e., we want to detect a specific event in a time window of inputs. Resulting query looks like this, with the N and M being 50 and 5, respectively:</p>
+
+<pre>
+define stream MEWMAOutput(anomalies object); 
+  
+from MEWMAOutput#window.length(5)[list:size(anomalies) >= 50] 
+select count() as count 
+insert into OutputStream;
+</pre>
+
+<p>Current version of StreamPipes does not allow usage of lists in Siddhi wrapper (support for lists is expected for version 0.68.0). Therefore, instead of using list of detected outliers, we count them beforehand and input plain numbers into SP Siddhi-Processor. As a consequence, there is a little change to the presented query:</p>
+
+<pre>
+define stream MEWMAOutput(numOfAnomalies int); 
+
+from MEWMAOutput#window.length(5)[numOfAnomalies >= 50] 
+select count() as count 
+insert into OutputStream;
+</pre>
+
+<p>For the sake of demonstration, an output from MEWMA was used, but there is no limitation as to which algorithm is being used, as long as the output represents a count of detected outliers, anomalies, etc... In fact, count of any occurrences of interest to the problem being solved can be used, regardless of the use-case.</p>
+
+<p>Output of this component can be used by other SP pipeline elements to raise an alert, for further processing, visualization, etc.</p>
 
 <h3>Interfaces</h3>
-n/a
-<p>
+<p>This component receives input from any element that provides count of occurrences of interest. In case of demonstration, output from MEWMA is used.</p>
+
+<p>After query execution, it outputs count of inputted values that correspond to the condition.</p>
+
+<p>Since this component is implemented in a way that allows custom values for window length and number of occurrences, a user interaction is required. In essence, when user creates pipeline and employs this component, a corresponding window pops up which prompts user to enter said values.</p>
 
 <h3>Subordinates and platform dependencies</h3>
-n/a
-<p>
+<p>StreamPipes (and this component, as well) is available for Linux, Windows and Mac OS X.</p>
+
+<p>This component was developed on Linux machine. Docker and Docker Compose are required in order to run pipelines.</p>
 
 <h3>License</h3>
 n/a
@@ -65,7 +103,11 @@ n/a
 <p>
 
 <h3>References</h3>
-n/a
+<ul>
+  <li>StreamPipes - <a href="https://github.com/apache/incubator-streampipes/tree/rel/0.67.0">https://github.com/apache/incubator-streampipes/tree/rel/0.67.0</a></li>
+  <li>StreamPipes extensions - <a href="https://github.com/apache/incubator-streampipes-extensions/tree/rel/0.67.0">https://github.com/apache/incubator-streampipes-extensions/tree/rel/0.67.0</a></li>
+  <li>StreamPipes Siddhi wrapper - <a href="https://github.com/apache/incubator-streampipes/tree/rel/0.67.0/streampipes-wrapper-siddhi">https://github.com/apache/incubator-streampipes/tree/rel/0.67.0/streampipes-wrapper-siddhi</a></li>
+</ul>
 <p>
 
 <h3>To be considered in particular for the following COGNITWIN pilots</h3>
