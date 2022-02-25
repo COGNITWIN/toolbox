@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COGNITWIN Toolbox Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../img/cognitwin_icon.png" />
+</head>
+
+<body>
+
+<div class="rounded">
+  <div class="logo logo-image">
+	  <div class="logo-image">
+		  <a href="http://cognitwin.eu/" title="COGNITWIN"><img src="../img/logo.png" alt="COGNITWIN" height="30%" width="30%" style="border-radius: 10px;"></a>
+		  <h1 class="tbfy-title"></h1>
+	  </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="col-md-14">
+
+<div style="margin-bottom: 1em;"></div>
+
+<section class="panel panel-info">
+<div class="panel-heading"><h2>Emission (Gas Treatment Center) temperature and fan control</h2></div>
+<div class="panel-body-1">
+
+<h3>Pipeline name</h3>
+Emission (Gas Treatment Center) temperature and fan control
+<p>
+
+<h3>Pipeline overview</h3>
+<img src="hydro-figure-1.png"></img>
+<p>
+
+<h3>Pipeline components</h3>
+The following components are used in the pipeline (with links)
+
+•	MAI - Weather API
+•	Cybernetica OPC UA Server
+•	Cybernetica CENIT
+•	Cybernetica Viewer 
+<p>
+
+<h3>Pipeline example description</h3>
+Data Sources:  
+•	Weather data is collected from Norwegian Meteorological Institute 
+•	Process data from cells and GTC  
+Data Processors: 
+•	MAI queries and collects weather data through MET API, prepares data for OPC UA 
+•	Hydro OPC UA and GTC OPC UA expose process data to data processors 
+•	OPC UA collects data from various sources and makes it available to Cybernetica CENIT, Cybernetica ModelFit & Cybernetica Viewer 
+•	Cybernetica CENIT and Cybernetica ModelFit perform online/offline optimization, respectively 
+Data Sinks:  
+•	Optimal control sequence as calculated by Cybernetica CENIT is implemented in control system 
+•	Data is visualized graphically to the user using Cybernetica Viewer.  
+
+Temperature in tapping stream and Slag in refining ladle
+Predictive Maintenance of Machinery
+Rolling Mill Tracking System
+Hybrid model for ladle refractory wear
+Boiler fouling management
+<p>
+
+<h3>Defined in COGNITWIN WPs</h3>
+WP1 Hydro pilot + WP5 + WP4 
+<p>
+
+</div>
+</section>
+
+<div style="margin-bottom: 1em;"></div>
