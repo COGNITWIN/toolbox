@@ -33,23 +33,85 @@
 <div class="panel-body-1">
 
 <h3>Pipeline name</h3>
-Rolling Mill Tracking System
-<p>
+<p>Rolling Mill Tracking System </p>
 
 <h3>Pipeline overview</h3>
-<img src="saarstahl-figure-1.png"></img>
 <p>
-
-<h3>Pipeline components</h3>
-<p>
-The following components are used in the pipeline:
-<ul>
-  <li> </li>
-  <li> </li>
-  <li> </li>
-  <li> </li>
-</ul>
+  <h4>Training/Machine Learning Phase</h4>
+  <img src="saarstahl-figure-1.png" width="100%"></img>
+  <p>
+    The following components are used in the pipeline:
+    <p>
+      Digital Twin Data Acquisition/Collection:
+      <ul>
+        <li>Sensors: RGB Cameras</li>
+      </ul>
+    </p>
+    <p>
+      Digital Twin Representation:
+      <ul>
+        <li>Metashape, CINEMA 4D</li>
+    
+      </ul>
+    </p>
+    <p>
+      Hybrid/Cognitive Digital Twin:
+      <ul>
+        <li>TensorFlow</li>
+        <li>PyTorch</li>
+        <li>Fast.ai</li>
+        <li>XILINK, Vivado</li>
+      </ul>
+    </p>
+    <p>
+      Digital Twin Visualisation and Control:
+      <ul>
+        <li><a href="../tools/neuroscope.html">Neuroscope</a></li>
+      </ul>
+    </p>
+    </p>
+  </p>
 </p>
+
+<p>
+  <h4>Operational Phase  </h4>
+  <img src="saarstahl-figure-2.png" width="100%"></img>
+  <p>
+    The following components are used in the pipeline:
+    <p>
+      Digital Twin Data Acquisition/Collection:
+      <ul>
+        <li>Sensors: RGB Cameras</li>
+        <li>OPC UA</li>
+        <li>MFT, MES & Storage</li>
+      </ul>
+    </p>
+    <p>
+      Digital Twin Representation:
+      <ul>
+        <li>DL Model for ID Recognition</li>
+        <li>MFT, MES & Storage</li>
+      </ul>
+    </p>
+    <p>
+      Hybrid/Cognitive Digital Twin:
+      <ul>
+        <li>RabbitMQ, Flask</li>
+        <li>DL Model for Billett Detection&Tracking</li>
+        <li>Docker</li>
+      </ul>
+    </p>
+    <p>
+      Digital Twin Visualisation and Control:
+      <ul>
+        <li>Grafana, Graylog</li>
+      </ul>
+    </p>
+    </p>
+  </p>
+</p>
+
+
 
 <h3>Pipeline example description</h3>
 <p></p>
