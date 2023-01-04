@@ -42,25 +42,24 @@ SubFUSE
 
 <h3>Short description</h3>
 <p>SubFUSE is a state estimation (soft-sensory) tool which fuses subspace methods for system identification with Kalman filtering. The tool is solely data-driven, it requires IO data (measurements) as input.</p>
-<p>In particular, the tool is developed for the estimation of input fuel characteristics of combustion-thermal power plants. Relying on regular process data including flue gas composition measurements, an estimate of the chemical structure of the fuel fed to the furnace of a fluidized bed boiler is provided. The approach can be applied for alternative state estimation purposes as well, given that a suitable plant model can be generated and proper measurements are provided.</p>
-<p>The tool has been tested in a simulated environment which aims to replicate the dynamics of the pilot problem. Validation of the tool using data from pilot will be conducted in 2021, a generalized version will be developed based on validation results.</p>
-<p>The tool has been implemented in MATLAB, and is available in script format.</p>
-<p>
+<p>In particular, the tool is developed for the estimation of input fuel characteristics of combustion-thermal power plants. Relying on regular process data including flue gas composition measurements, an estimate of the chemical structure of the fuel fed to the furnace of a fluidized bed boiler is provided. The tool has been tested in a simulated environment which aims to replicate the dynamics of the pilot problem. </p>
+<p>The approach can be applied for alternative state estimation purposes as well, given that a suitable plant model can be generated and proper measurements are provided. The tool has been implemented in MATLAB, and is available in script format.</p>
+<p></p>
 
 <h3>Example of usage</h3>
-<p>The tool targets of solving the WP3 pilot problem on fuel characterization, as a part of the heat exchanger fouling monitoring problem. Using IO data pairs of the process of interest, the tool proceeds in two steps: first, a sufficient Linear Time-Invariant (LTI) approximation of the governing dynamics is conducted utilizing subspace identification. Once the approximate dynamics is available a standard Kalman filter is used for state estimation.</p>
-<p>For example, Figures 1 and 2 illustrate the performance of the tool in soft-sensing the chemical composition of the fuel fed to a Circulating Fluidized Bed (CFB) boiler. In the learning phase (figure 1) the tool learns to mimic the dynamics of combustion.</p>
+<p>The tool targets of solving the WP3 pilot problem on fuel characterization, as a part of the heat exchanger fouling monitoring problem. Using IO data pairs of the process of interest, the tool proceeds in two steps: first, a sufficient Linear Time-Invariant (LTI) approximation of the governing dynamics is conducted utilizing subspace identification. Once the approximate dynamics are available, a standard Kalman filter is used for state estimation.</p>
+<p>For example, Figures 1 and 2 illustrate the performance of the tool in soft-sensing the chemical composition of the fuel fed to a Circulating Fluidized Bed (CFB) boiler. In the learning phase (Figure 1) the tool learns to mimic the dynamics of combustion.</p>
 <img src="subfuse-figure-1.png">
 <p>Figure 1: The identified LTI model (red) of a nonlinear combustion dynamics using IO measurement pairs (blue). Training data (left) are separated from the validation data (right) by a black line located at timestep 600.</p>
 <p>Based on the IO relationship identified from data, the tool estimates (soft-senses) the chemical composition of the fuel using standard flue gas measurement data available at the power plant of interest (figure 2).</p>
 <img src="subfuse-figure-2.png">
 <p>Figure 2: Actual (blue) and estimated (red) nitrogen content of the fuel used for heat generation in the combustion-thermal power plant of interest.</p>
-<p>
+<p></p>
 
 <h3>Interfaces</h3>
 <p>The tool is implemented in MATLAB script (.m file). Input data (measurements) are provided as numerical vectors (matrices). Estimation outcomes are provided as numerical vectors (matrices).</p>
 <p>A link with StreamPipes is enabled by an OPC-UA client/server component (see FUSE OPC-UA tool).</p>
-<p>
+
 
 <h3>Subordinates and platform dependencies</h3>
 <p>The tool is implemented in MATLAB script (.m file). MATLAB, a product Mathworks is required to run the application. (SubFUSE has been tested on MATLAB version 2020b).</p>
@@ -68,7 +67,7 @@ SubFUSE
 <p>
 
 <h3>License</h3>
-The SubFUSE code is free for use in the project (contact Istvan.Selek@oulu.fi).
+The SubFUSE code tool is available for download (contact Markus.Neuvonen@oulu.fi or Istvan.Selek@oulu.fi ). 
 <p>
 
 <h3>TRL</h3>
@@ -76,14 +75,14 @@ Current state is TRL 4 (validated in lab) currently being raised to TRL 5 (valid
 <p>
 
 <h3>References</h3>
-<ul>
-  <li>Istvan Selek (Istvan.Selek@oulu.fi)
-  <li>Markus Neuvonen (Markus.Neuvonen@oulu.fi)
-</ul>
+<p>Neuvonen, M., I. Selek and E. Ikonen (2021) Estimating Fuel Characteristics from Simulated Circulating Fluidized Bed Furnace Data. Int. Conf. on Systems and Control (ICSC’21), 24–26 Nov 2021, Caen, France, 2021, pp. 107–112.</p>
 <p>
 
 <h3>To be considered in particular for the following COGNITWIN pilots</h3>
-Sumitomo SHI FW Energia Oy
+<ul>
+  <li>Sumitomo SHI FW Energia Oy</li>
+  <li>WP3</li>
+</ul>
 <p>
 
 </div>

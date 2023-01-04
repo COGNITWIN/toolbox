@@ -37,7 +37,7 @@ Boiler fouling management
 <p>
 
 <h3>Pipeline overview</h3>
-<img src="sumitomo-figure-1.png" width="100%"></img>
+<img src="sumitomo-figure-2.png" width="100%"></img>
 <p>
 
 <h3>Pipeline components</h3>
@@ -47,7 +47,7 @@ The following components are used in the pipeline:
   Digital Twin Data Acquisition/Collection:
   <ul>
     <li>Sensors: Acoustic Sensing</li>
-    <li>Sumitomo SmartBoiler</li>
+    <li>SFW Digital Service Platform</li>
     <li>OPC DA</li>
   </ul>
 </p>
@@ -60,24 +60,68 @@ The following components are used in the pipeline:
 <p>
   Hybrid/Cognitive Digital Twin:
   <ul>
-    <li>MATLAB-SIMULINK OPC Toolbox</li>
-    <li>MATLAB U/EnKF, hotloop, PMFIR, DVR</li>
+    <li>MATLAB-Simulink, incl. MATLAB OPC Toolbox</li>
+    <li>COGNITWIN MATLAB tools: Physical model tuning (PMFIR), Unscented Kalman filtering (UKF), Ensemble Kalman filtering (EnKF), subspace identification (SID), dynamic modelling (Prony)</li>
+    <li>COGNITWIN physical model for a heat exchanger (HE model, for MATLAB)</li>
+    <li>SFW model for CFB furnace (hotloop, for MATLAB)</li>
+    <li>COGNITWIN MIP tool for sootblowing optimization</li>
   </ul>
 </p>
 <p>
   Digital Twin Visualisation and Control:
   <ul>
-    <li>StreamPipes</li>
-    <li>Sumitomo UX</li>
+    <li>Apache StreamPipes</li>
+    <li>Sumitomo plant UI/UX</li>
+  </ul>
+</p>
+<p>
+  The tools are packaged into five components following the WP3 pilot-driven approach:
+  <ul>
+    <li>FUSE, aiming at solving the fuel characterization problem, including application independent PMFIR and UKF tools.
+      <ul>
+        <li>The FUSE OPC-UA component supports the FUSE by demonstrating WP3 data communication. </li>
+        <li>The SubFUSE component provides an alternative application independent data-driven identification tool, applied in solving the fuel characterization problem.</li>
+      </ul>
+    </li>
+    <li>FouMon collects tools  for solving the fouling monitoring problem, including the HE-model,  EnKF and ODtool application independent tools.</li>
+    <li>FouCon provides the optimization tool for solving the WP3 sootblowing problem: MIP/sb. The application independent Prony-tool is provided for data-driven modelling.</li>
   </ul>
 </p>
 </p>
 
 <h3>Pipeline example description</h3>
-<p></p>
+<p>
+  <p>Data sources
+    <ul>
+      <li>Process data is collected on-line from plant</li>
+      <li>Acousting sensor is operating on-line</li>
+    </ul>
+  </p>
+  <p>
+    Data processing
+    <ul>
+      <li>Data is transferred from plant to SFW services and to analytics, on-line or in off-line batches</li>
+      <li>Analytics for interpretation of acoustic sensoring data.</li>
+      <li>Analytics contains Matlab-tools for data quality improvement, physical models, model tuning, process identification (data-driven modelling) and optimization/predictive maintenance.</li>
+      <li>OPC-UA can communicate data and computation results between SFW services, Matlab and StreamPipes</li>
+    </ul>
+  </p>
+  <p>
+    Data sinks
+    <ul>
+      <li>Sumitomo plant UI/UX is used for on-line plant operation and guidance</li>
+    </ul>
+  </p>
+</p>
 
 <h3>Defined in COGNITWIN WPs</h3>
-<p></p>
+<p>
+  <ul>
+    <li>WP3 SFW pilot problem and solution</li>
+    <li>WP5 hybrid and cognitive digital twin analytics & optimization</li>
+    <li>WP4 OPC and data quality</li>
+  </ul>
+</p>
 
 </div>
 </section>
