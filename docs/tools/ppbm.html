@@ -42,46 +42,68 @@ Task 5.4: Hybrid Digital Twins
 
 <h3>Short description</h3>
 <p>"Pragmatism in physics-based modeling" is a method/framework for developing physics-based mathematical models. Such models may serve as a digital twin alone or as companion with data-based AI/ML methods, to form hybrid digital twins to exploit the combination of data and physics-based modeling.</p>
-<p>The purpose of "Pragmatism in physics-based modeling (PPBM)" is to device a generic methodology for development of physics-based models for application in digital twins. The PPBM provides a recipe for attacking a digital twin development, starting out from problem definition, information collection, including exact definitions of the output requirements for the model, assembling a system architects team,  model specification, use of sub-level empirical or computed data, model building and application. The PPBM can only be developed further though application in industrial cases, like the Sidenor pilot case.</p>
+<p>The purpose of "Pragmatism in physics-based modeling (PPBM)" is to device a generic methodology for development of physics-based models for application in digital twins. The PPBM provides a recipe for attacking a digital twin development, starting out from problem definition, information collection, including exact definitions of the output requirements for the model, assembling a system architects team, model specification, use of sub-level empirical or computed data, model building and application. The PPBM can only be developed further though application in industrial cases, like the Sidenor pilot case.</p>
 <p>The physics, chemistry and numerical methods to be used may differ between applications, but PPBM should help the developers (system architects) to run though a set of well-defined steps on the way from problem definition to final application. For each new application using the PPBM new learning must be extracted and reported (published).</p>
-<p>In the Sidenor pilot case offline data is used. The data has multiple challenges. We now explore extending the PPBM to applying a PPBM based application to clean the available data, but also provide additional simulated data. These combined data will be further be explored in a hybrid approach.</p>
-<p>
+
+<!-- <p>In the Sidenor pilot case offline data is used. The data has multiple challenges. We now explore extending the PPBM to applying a PPBM based application to clean the available data, but also provide additional simulated data. These combined data will be further be explored in a hybrid approach.</p>
+<p> -->
 
 <h3>Example of usage</h3>
-<p>In the Sidenor pilot, applying and extending the PPFM method, we are developed a model for the ladle refractory erosion. The thermal model is now possible to operate, and an example is shown below. The erosion models are under development.</p>
-<p>We can see that the steel level was surprisingly low in this case. This was found to be an error in the data. However, the thermal model alone demonstrates that different erosion levels on the inside of the lade will lead to different dynamics surface temperatures. In this case it supports that combining PPBF,  thermal imaging and ML/AI a route to keep track on ladle life is possible.</p>
-<img src="pfbm-figure-1.png">
-<p>Figure A: We see the outer surface temperature at time 131 min after metal was filled into the ladle. The ladle was initially eroded.</p>
-<p>Figure B: Same case as in Figure A, but ladle has no initial erosion. The outer surface temperature of the ladle is significantly modified.</p>
+<p>In the Sidenor pilot, applying and extending the PPBM method, we have developed a model for the ladle refractory erosion. In this pilot case offline data is mainly used – but the model has also been tested on online data. The data had multiple challenges, and many different approaches to clean or circumferent data flaws was implemented. The model task was to build a digital twin that can help operators to better decide when the steel ladles in the Sidenor steel plant have to be taken out for demolition and relining of the ladle refractory. The challenge is to use the ladle more times without compromising safety in the plant. The methods developed for design and implementation of the physics-based model is described [7] and the result was a physics-based model [6] that predicts the refractory wear. The model predicts the thermal state in steel, slag and refractory elements and is quasi two-dimensional (simplification for fast computations). Based on this the wear of the refractory is predicted along the vertical height of the ladle. In Figure A we see an example of the flow simulations that were used to build heat and mass transfer coefficients (one building block) for the overall model. In Figure B we see predicted temperatures and predicted erosion profile for one specific Sidenor ladle. For this specific case thermo-images of the surface temperature could have been used to corroborate the model predictions.</p>
+<img src="pfbm-figure-2.png">
+<p><i>Figure A: Computational fluid dynamics prediction of bubble driven flow in a steel ladle was performed to obtain wall shear stress distribution for various operational situations. Bubble trajectories (mostly red color), steel (blue), slag (red) and velocity vectors can be seen.</i></p>
+
+
+<img src="pfbm-figure-3.png">
+<p><i>Figure B Left: We see the outer surface temperature [K] of the ladle at the time when melt treatment is completed. Right: The predicted erosion profile is shown as well as the temperature in the different refractory layers. Visualised by Paraview.</i></p>
 <p>
 
+ <p>Transient model prediction of steel temperature versus measured temperatures are shown in Figure C. As there is no measured temperature at the start of the ladle operation (the first appearing measurement point was found to be from previous heat) the initial temperature has to be found using an optimization scheme. The model has been tuned to the demolition data, using a significant amount of process data. Quantitative prediction of the lining erosion is compared to measurements in Figure E. This is a result of simulations of ladle erosion during 79 heats and where the upper part of the lining has been repaired at half way.  The two measured curves is a result of the ladle being asymmetric with respect to teaming and gas injection nozzles, while the model is two dimensional. The black and yellow curves must therefore be compared.</p> 
+
+ <img src="pfbm-figure-4.png">
+ <p><i>Figure C: Predicted steel temperature evolution, measured temperatures and energy added to the ladle ("Power"), for Ladle 5, heat 206217.</i></p>
+ <img src="pfbm-figure-5.png">
+ <p><i>Figure E Comparison of predicted versus measured eroded thickness for Ladle 11, campaign 80, 2019. </i></p>
+
+ <p>The model can easily be applied to similar operations in the metallurgical industry. In addition, the model, using the PPBM methodology, can easily be extended to metal refining by adding the metal chemistry to the model. The model can further be extended to 3D but that will slow the model considerably – and is not recommended before it can be demonstrated that 3-dimensional effects are the most important contribution to quantitative predictions.</p>
+
 <h3>Interfaces</h3>
-The Sidenor application of the PPBM is currently reading  data in ascii format (*.csv, *.xls) and output is saved as files in similar formats. In addition data can be saved in the VTK *.vts format. These files can be loaded into the Paraview (https://www.paraview.org/ ) tool for 3D visualization of the results.
+<p>The Sidenor application of the PPBM is currently reading  data in ascii format (*.csv, *.xls) and output is saved as files in similar formats. In addition data can be saved in the VTK *.vts format. These files can be loaded into the Paraview (https://www.paraview.org/ ) tool for 3D visualization of the results.</p>
 <p>
 
 <h3>Subordinates and platform dependencies</h3>
-The Sidenor model is using Python 3 and standard Python libraries. It can be run on both Windows and Linux systems.
+<p>The Sidenor model is using Python 3 and standard Python libraries. It can be run on both Windows and Linux systems.</p>
 <p>
 
 <h3>License</h3>
-The model will be open (free use) and at the end of the project to be published at <a href="https://github.com">https://github.com</a>.
+<p>The numerical model is open (free use) and can be downloaded from  https://github.com, using the open source  MIT license (https://opensource.org/licenses/MIT)</p>
 <p>
 
 <h3>TRL</h3>
-Currently it is TRL=3. As this belongs to the class of methods it may be developed into a technical standard at a later stage. <a href="https://en.wikipedia.org/wiki/Technical_standard">https://en.wikipedia.org/wiki/Technical_standard</a>
+Currently it is TRL=3. As this belongs to the class of methods it may be developed into a technical standard at a later stage (<a href="https://en.wikipedia.org/wiki/Technical_standard">https://en.wikipedia.org/wiki/Technical_standard</a>).
 <p>
 
 <h3>References</h3>
-<ul>
+<ol type="1">
   <li>J. Zoric, S. T. Johansen, K. E. Einarsrud, and A. Solheim, ‘ON PRAGMATISM IN INDUSTRIAL MODELING’, Progress in Applied CFD, Selected papers from 10th International Conference on Computational Fluid Dynamics in the Oil & Gas, Metallurgical and Process Industries, vol. 1, pp. 9–24, 2015. Available: <a href="https://www.sintefbok.no/book/download/1038">https://www.sintefbok.no/book/download/1038</a>
   <li>J. Zoric et al., ‘On Pragmatism in industrial modeling - Part II: Workflows and associated data and metadata’, Melbourne, Australia, 7-9 December, 2015, 2015, p. 7 pages, [Online]. Available: <a href="http://www.cfd.com.au/cfd_conf15/PDFs/032JOH.pdf">http://www.cfd.com.au/cfd_conf15/PDFs/032JOH.pdf</a>
   <li>S. T. Johansen, E. A. Meese, J. Zoric, A. Islam, and D. W. Martins, ‘On Pragmatism in Industrial Modeling, Part III: Application to Operational Drilling’, in Progress in Applied CFD – CFD2017 Selected papers from 12th International Conference on Computational Fluid Dynamics in the Oil & Gas, Metallurgical and Process Industries, Trondheim, 2017, p. 11, [Online]. Available: <a href="http://hdl.handle.net/11250/2465068">http://hdl.handle.net/11250/2465068</a>
-</ul>
+  <li>S. T. Johansen and E. Ringdalen, ‘Reduced metal loss to slag in HC FeCr production - by redesign based on mathematical modelling’, in Furnace Tapping 2018 Conference, Edited by J.D. Steenkamp & A. Cowey, Kruger National Park, 14-17 October 2018, Kruger National Park, South Africa, vol. Symposium Series S98, pp. 29–38.</li>
+  <li>S. T. Johansen, K. E. Einarsrud, A. Solheim, and K. J. Vachaparambil, ‘A Pragmatic Model for Alumina Feeding’, in Light Metals 2022, D. Eskin, Ed. Cham: Springer International Publishing, 2022, pp. 503–511. doi: 10.1007/978-3-030-92529-1_67.</li>
+  <li>Stein Tore Johansen, Bjørn Tore Løvfall and Tamara Rodriguez Duran, 'Pragmatical physics-based model for ladle lifetime prediction', paper ready for submission, 2023</li>
+  <li>Stein Tore Johansen, Bjørn Tore Løvfall, Tamara Rodriguez Duran and Josip Zoric, 'Pragmatism in industrial modelling, applied to "ladle lifetime in the steel industry"', paper ready for submission, 2023</li>
+</ol>
 <p>
 
-<h3>To be considered in particular for the following COGNITWIN pilots</h3>
-Sidenor and Sumitomo. In addition the Sidenor application may be exploited by COGNITWIN partners Elkem and Saarstahl.
+<h3>Application in COGNITWIN pilots</h3>
+<p>PPBM was applied in the Sidenor use case. The Sidenor application may later be exploited by COGNITWIN partners Elkem and Saarstahl.</p>
 <p>
+
+<h3>Contact persons</h3>
+<ul>
+  <li>Bjørn Tore Løvfall, SINTEF, E-mail: bjorntore.lovfall@sintef.no</li>
+  <li>Stein Tore Johansen, SINTEF, E-mail: Stein.T.Johansen@sintef.no</li>
+</ul>
 
 </div>
 </section>
