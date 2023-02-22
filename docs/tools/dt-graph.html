@@ -50,7 +50,7 @@ Task 4.2 and Task 5.5
   relevant outputs of the business logic. These can be consumed either by SINDIT’s own presentation layer or by authorized third parties. The physical assets
   comprise the physical layer which is not discussed here.</p>
 
- <img src="SINDIT_software_architecture.png">
+ <img src="SINDIT_software_architecture.png" width="90%">
  <p><i>Figure 1: SINDIT Software Architecture</i></p>
 
  <p>
@@ -60,17 +60,17 @@ Task 4.2 and Task 5.5
 
 <p>An instance of SINDIT is running at <a href="https://sindit.sintef.cloud/">https://sindit.sintef.cloud/</a> where the Digital Twin of the <a href="https://www.fischertechnik.de/en/products/learning/training-models/554868-edu-training-factory-industry-4-0-24v-education#imagedownload">Fischertechnik Training Factory Industry 4.0</a> is represented with Knowledge Graph and visualized with SINDIT dashboard. SINDIT is used a universal Digital Twin platform, that holds all relevant information about the assets from the factory and is synchronized in real-time to the physical assets. It collects both static information like documents, as well as dynamic time-series data.</p>
 
-<img src="https://github.com/SINTEF-9012/SINDIT/blob/main/documentation/img/dt_dashboard.png?raw=true">
+<img src="https://github.com/SINTEF-9012/SINDIT/blob/main/documentation/img/dt_dashboard.png?raw=true"  width="90%">
 <p><i>Figure 2: SINDIT Dashboard showing different components of the Fischertechnik factory.</i></p>
 
 <p>To make the architecture of SINDIT be applicable to various domains and factories, a very generic meta-model (shown in Figure 3) has been created.</p>
-<img src="https://raw.githubusercontent.com/SINTEF-9012/SINDIT/main/documentation/img/kg_dt_meta_model.svg"
+<img src="https://raw.githubusercontent.com/SINTEF-9012/SINDIT/main/documentation/img/kg_dt_meta_model.svg"  width="90%">
 <p><i>Figure 3: Generic Information Model employed in SINDIT</i></p>
 
 <p></p>
 <h3>Interfaces</h3>
 A REST-API is provided by the digital-twin service and is utilized by the dashboard-frontend. The diagram in Figure 4 provides an overview over the deployment architecture of SINDIT.
-<img src="https://raw.githubusercontent.com/SINTEF-9012/SINDIT/main/documentation/img/dt_deployment_diagram_single_factory.svg"
+<img src="https://raw.githubusercontent.com/SINTEF-9012/SINDIT/main/documentation/img/dt_deployment_diagram_single_factory.svg"  width="90%">
 <p><i>Figure 4: Composite Structure Diagram  representing different compnents of SINDIT</i></p>
 <p>
 
@@ -96,11 +96,18 @@ TRL4 – a protype based on a Python stack is implemented at this stage and vali
 <h3>Application in COGNITWIN pilots</h3>
 <p>SINIDT is used in SIDENOR Pilot to enable the "cognition" aspect of the Cognitive Digital Twin (CDT). Accordingly, SINDIT integrates both acyclic data(e.g., process parameters) and cyclic data (e.g., timeseries sensor data) from the production into the Semantic Knowledge Graph in order to enable a formal data representation for the CDT. The data was used by hybrid digital twins (e.g., physical models, hybrid models) to simulate and make prediction about the conditions of the ladles. Then, output of these hybrid models are integrated into SINDIT in order to support automatic reasoning and decision-making support for the human operator.  Figure 5 illustrates the corresponding SINDIT knowledge graph which contain the Ladles (blue node), Ladle Use (pink), Heats (dark green), Alloy Additions (purple) and prediction models output (light green).</p>
 
-<img src="sindit-2.PNG">
-<p><i>Figure 5: SINDIT Semantic Knowledge representing the information from SIDENOR pilot.</i></p>
-
-<img src="sindit-3.PNG">
-<p><i>Figure 6: Seperate window in the dashboard showing the reasoning result..</i></p>
+<p>
+  <div style="display: flex;">
+    <div>
+      <img src="sindit-2.PNG" height="95%">
+      <p><i>Figure 5: SINDIT Semantic Knowledge representing the information from SIDENOR pilot.</i></p>
+    </div>
+    <div>
+      <img src="sindit-3.PNG" height="95%">
+      <p><i>Figure 6: Seperate window in the dashboard showing the reasoning result.</i></p>
+    </div>
+  </div>
+</p>
 
 <p>Furthermore, domain expert knowledge for making assessment (e.g., whether to repair or demolish the ladles) is also integrated into SINDIT under the form of reasoning rules (IF-THEN rules). The reasoning result is also integrated into the knowledge graph and visualised in a separate window in SINDIT in order to support the operator to make decision on the ladles after every heat as can be seen in Figure 6.</p>
 
