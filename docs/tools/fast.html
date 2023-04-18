@@ -29,11 +29,11 @@
 <div style="margin-bottom: 1em;"></div>
 
 <section class="panel panel-info">
-<div class="panel-heading"><h2>FAST</h2></div>
+<div class="panel-heading"><h2>FA<sup>3</sup>ST</h2></div>
 <div class="panel-body-1">
 
 <h3>Name</h3>
-FAST – Fraunhofer AAS Tools for Digital Twins 
+FA<sup>3</sup>ST – Fraunhofer AAS Tools for Digital Twins 
 <p>
 
 <h3>Defined in Task</h3>
@@ -41,8 +41,8 @@ n/a
 <p>
 
 <h3>Short description</h3>
-<p>FAST is a Java-based software ecosystem for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1]. It will be used in the project to develop standard-conform executable DTs in the pilots.</p>
-<p>FAST currently consists of two software artefacts, the AAS Service library enabling creating of executable DTs and the AAS registry, a service where DTs can be registered and discovered. Both of them will be presented in the following.</p>
+<p>FA<sup>3</sup>ST is a Java-based software ecosystem for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1]. It will be used in the project to develop standard-conform executable DTs in the pilots.</p>
+<p>FA<sup>3</sup>ST currently consists of two software artefacts, the AAS Service library enabling creating of executable DTs and the AAS registry, a service where DTs can be registered and discovered. Both of them will be presented in the following.</p>
 <h4>AAS Service Library</h4>
 <p>The AAS service library is designed to be easily extendible and offers a variety of extension points via interface, e.g. for de-/serialization formats and persistence implementation as well as different protocols for endpoints and asset connections.</p>
 <p>The following figure shows a high-level architectural view presenting all the function blocks of the library of which almost all are defined as interfaces for loose coupling and easy extension.</p>
@@ -58,7 +58,7 @@ n/a
   <li><b>Asset Connection (interface):</b> This interface defines how the DT interacts with the actual (physical) asset/device. As assets can communicate via lots of different protocols, e.g. HTTP, OPC UA, Profibus, CAN bus, etc., it is crucial that the AAS service library allows custom implementations of this connection logic.  
 </ul>
 <h4>AAS Registry</h4>
-<p>The second software artefact of FAST is the AAS registry. It offers a standard-conform way to register, manage and discover deployed administration shells. It is also implementation in Java, but is also available as a standalone docker container.</p>
+<p>The second software artefact of FA<sup>3</sup>ST is the AAS registry. It offers a standard-conform way to register, manage and discover deployed administration shells. It is also implementation in Java, but is also available as a standalone docker container.</p>
 <p>The following figure shows the high-level architecture of the AAS registry.</p>
 <img src="fast-figure-2.png"></img>  
 <p>The outermost boxes represent software (gradle) projects whereas the inner boxes represent Java classes/interfaces. The core project contains the classes representing the AAS meta model as well as an interface defining CRUD methods to again abstract from the concrete implementation of storage adapter. Currently there are two implementations of that interface, one providing in-memory storage of data and one using the Java Persistence API (JPA) that supports again multiple different SQL and object-based databases.</p>
@@ -94,7 +94,7 @@ TRL 4/5
 <p>
 
 <h3>To be considered in particular for the following COGNITWIN pilots</h3>
-As FAST is still in an early stage of development it is currently only used in a demonstrator setup for the Sidenor steel ladle pilot. However, it is envisioned to be used by almost all pilots later on. 
+As FA<sup>3</sup>ST is still in an early stage of development it is currently only used in a demonstrator setup for the Sidenor steel ladle pilot. However, it is envisioned to be used by almost all pilots later on. 
 <p>
 
 </div>
