@@ -43,13 +43,13 @@ n/a
 <h3>Short description</h3>
 <p>FA<sup>3</sup>ST Service is an open source Java-based software for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1] and has been used in the project to develop standard-conform executable DTs in the pilots. Main features are that it is designed to be easy to use and extend and that it can be connected to assets using arbitrary communication protocols. To create an reactive DT, all you need to do is start FA<sup>3</sup>ST Service with an AAS model and a configuration file and in return you get a DT with an AAS-compliant DT API for interaction of the DT with the outside world that can synchronize itself with the underlying asset(s).</p>
 
-<img src="fast-figure-4.png"></img>
+<img src="fast-figure-4.png" width="70%"></img>
 
 <p>FA<sup>3</sup>ST service is designed to be easily extendible and offers a variety of extension points via interfaces, e.g. for de-/serialization formats and persistence implementation as well as different protocols for endpoints and asset connections.   </p>
 
 <p>The following figure shows a high-level architectural view of the FA<sup>3</sup>ST  Service components (white boxes). Most of them are designed as interfaces which enables supporting different concrete implementations in parallel via loose coupling and allows for easy extension in the future. The concrete implementations of these interface that are already shipped with FA<sup>3</sup>ST Service are represented by the light grey boxes on the sides.</p>
 
-<img src="fast-figure-5.png"></img>
+<img src="fast-figure-5.png" width="90%"></img>
 
 <p>The basic functionality of each function block is as follows:</p>
 
@@ -219,7 +219,7 @@ new Service(ServiceConfig.builder()
 </pre>
 
 When executed via CLI the output looks similar to this
-<img src="fast-figure-6.png"></img>
+<img src="fast-figure-6.png" width="85%"></img>
 </p>
 
 <h3>Interfaces  (in/out) – system/user </h3>
