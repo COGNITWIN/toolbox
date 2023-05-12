@@ -41,61 +41,220 @@ n/a
 <p>
 
 <h3>Short description</h3>
-<p>FA<sup>3</sup>ST is a Java-based software ecosystem for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1]. It will be used in the project to develop standard-conform executable DTs in the pilots.</p>
-<p>FA<sup>3</sup>ST currently consists of two software artefacts, the AAS Service library enabling creating of executable DTs and the AAS registry, a service where DTs can be registered and discovered. Both of them will be presented in the following.</p>
-<h4>AAS Service Library</h4>
-<p>The AAS service library is designed to be easily extendible and offers a variety of extension points via interface, e.g. for de-/serialization formats and persistence implementation as well as different protocols for endpoints and asset connections.</p>
-<p>The following figure shows a high-level architectural view presenting all the function blocks of the library of which almost all are defined as interfaces for loose coupling and easy extension.</p>
-<img src="fast-figure-1.png"></img>
+<p>FA<sup>3</sup>ST Service is an open source Java-based software for creating and managing digital twins (DTs), so-called Asset Administration Shells (AASs). It is based on the standard document(s) published by the Plattform Industrie 4.0 [1] and has been used in the project to develop standard-conform executable DTs in the pilots. Main features are that it is designed to be easy to use and extend and that it can be connected to assets using arbitrary communication protocols. To create an reactive DT, all you need to do is start FA<sup>3</sup>ST Service with an AAS model and a configuration file and in return you get a DT with an AAS-compliant DT API for interaction of the DT with the outside world that can synchronize itself with the underlying asset(s).</p>
+
+<img src="fast-figure-4.png"></img>
+
+<p>FA<sup>3</sup>ST service is designed to be easily extendible and offers a variety of extension points via interfaces, e.g. for de-/serialization formats and persistence implementation as well as different protocols for endpoints and asset connections.   </p>
+
+<p>The following figure shows a high-level architectural view of the FA<sup>3</sup>ST  Service components (white boxes). Most of them are designed as interfaces which enables supporting different concrete implementations in parallel via loose coupling and allows for easy extension in the future. The concrete implementations of these interface that are already shipped with FA<sup>3</sup>ST Service are represented by the light grey boxes on the sides.</p>
+
+<img src="fast-figure-5.png"></img>
+
 <p>The basic functionality of each function block is as follows:</p>
-<ul>
-  <li><b>Protocol Endpoint (interface):</b> A network endpoint that provides connectivity from external applications to the DT, e.g. via a HTTP or OPC UA server. 
-  <li><b>API calls, Events, I4.0 Language (interfaces):</b> These interfaces represent the three different types of messages that can be handled by a DT. API calls are messages that are explicitly defined in the standard documents such as read/write a property. Events are subscriptions to either property changes or alarms. I4.0 languages are an extension concept defined in the standard documents that allows definition of custom communication protocols, i.e. message and payload types, that are expected to be developed and standardized in the future. 
-  <li><b>Handler (interface):</b> The Handler interface also to inject custom processing logic into the execution phase of specific incoming messages. This is essential especially for executing custom code when using I4.0 languages. 
-  <li><b>AAS Model:</b> This is a code representation of the AAS meta model as defined in the standard document [1]. 
-  <li><b>De-/serializer (interface):</b> The two interfaces allow implementing different de-/serialization algorithms. This is important because the standard defines multiple data formats (JSON, XML, RDF, AutomationML) that should be supported. 
-  <li><b>Persistence Manager (interface):</b> This interface abstracts from concrete implementations of data storage so that it is easy to integrate any kind of data storage into a DT. 
-  <li><b>Asset Connection (interface):</b> This interface defines how the DT interacts with the actual (physical) asset/device. As assets can communicate via lots of different protocols, e.g. HTTP, OPC UA, Profibus, CAN bus, etc., it is crucial that the AAS service library allows custom implementations of this connection logic.  
-</ul>
-<h4>AAS Registry</h4>
-<p>The second software artefact of FA<sup>3</sup>ST is the AAS registry. It offers a standard-conform way to register, manage and discover deployed administration shells. It is also implementation in Java, but is also available as a standalone docker container.</p>
-<p>The following figure shows the high-level architecture of the AAS registry.</p>
-<img src="fast-figure-2.png"></img>  
-<p>The outermost boxes represent software (gradle) projects whereas the inner boxes represent Java classes/interfaces. The core project contains the classes representing the AAS meta model as well as an interface defining CRUD methods to again abstract from the concrete implementation of storage adapter. Currently there are two implementations of that interface, one providing in-memory storage of data and one using the Java Persistence API (JPA) that supports again multiple different SQL and object-based databases.</p>
-<p>The app project contains the Service class which implements the actual logic as well as the Controller class that defines an HTTP endpoint for the service.</p>
-<p>
 
-<h3>Example of usage</h3>
-<img src="fast-figure-3.png"></img>
-<p>Simple example how to create a runnable AAS based on a AAS model defined in aas_model.json</p>
-<p>
+<h4>Endpoint (interface)</h4>
+<p>A network endpoint that provides connectivity from external applications to the DT via a standardized API, e.g. via HTTP or OPC UA.</p>
 
-<h3>Interfaces</h3>
-The AAS service library provides a so-called fluent API for application developers to easily create administration shells and integrate them into existing (Java-based) applications if necessary. It also makes use of (software) interfaces where possible to allow customization. Probably the most important of these interfaces is for the asset connection, i.e. the logic that connects the administration shell with the real-world asset. The library currently ships with a preexisting implementation for OPC UA-based assets. Once running, an administration shell exposes its functionality by standardized APIs via so-called endpoints. Currently, it ships with only an implementation for a HTTP-based endpoint but custom extensions are also easily possible here.  
-The AAS registry provides a standardized HTTP/REST-based interface to register, read, update and delete administration shells. 
-<p>
+<h4>Configuration (interface) </h4>
+<p>The Configuration interface allows for easy integration and configuration of any kind of implementation of one of the other interfaces via a single configuration file. </p>
 
-<h3>Subordinates and platform dependencies</h3>
-The library is based on Java 8.1. The code has dependencies on multiple open source libraries, e.g. Eclipse Jetty [2] or Jackson [3]. All required libraries are licensed under either Apache 2.0, LGPL or MIT.
-<p>
+<h4>AAS Model</h4>
+<p>This is a code representation of the AAS meta model as defined in the standard document [1]. FA<sup>3</sup>ST Service uses the adminshell.io java-model open source library [2] for this which is currently in the process of moving to Eclipse AAS4j [3]. </p>
 
-<h3>License</h3>
-The software library is currently not publicly available but will be available for the project partners free of charge. We are currently considering publication as open source, most likely under LGPLv3 license. 
-<p>
+<h4>De-/serializer (interface)</h4>
+<p>The two interfaces allow implementing different de-/serialization algorithms. This is important because the standard defines multiple data formats (JSON, XML, RDF, AutomationML) that should be supported.  </p>
 
-<h3>TRL</h3>
-TRL 4/5 
-<p>
+<h4>MessageBus (interface)</h4>
+<p>The message bus enables communication and synchronization between the different components in FA<sup>3</sup>ST  Service. This is crucial to keep a consistent state, e.g. when having both an HTTP and OPC UA endpoint. </p>
+
+<h4>Persistence (interface)</h4>
+<p>This interface abstracts from concrete implementations of data storage so that it is easy to integrate any kind of data storage into a DT. Current implementation include in-memory storage as well as file-based storage. </p>
+
+<h4>Asset Connection (interface)</h4>
+<p>This interface defines how the DT interacts with the actual (physical) asset/device. As assets can communicate via lots of different protocols, e.g. HTTP, OPC UA, Profibus, CAN bus, etc., it is crucial that the AAS service library allows custom implementations of this connection logic. FA<sup>3</sup>ST Service ships with implementation for HTTP, OPC UA and MQTT.</p>
+
+<p>FA<sup>3</sup>ST Service tries to be flexible and user-friendly but providing clear interfaces for custom extensions as well as a sophisticated configuration mechanism that allows to create your own DT without writing any code. Instead, FA<sup>3</sup>ST Service is used by providing a configuration file together with your AAS model file on startup. It can be used via command-line interface, as docker container or as embedded library.</p>
+
+<p>As keeping the DT in sync with the real world is crucial, FA<sup>3</sup>ST Service introduced the concept of asset connection which goes beyond what is defined in the AAS specification. The AssetConnection interface defines the three conceptual interaction patterns between DT and its asset(s) in a protocol-agnostic way: read/write values, subscribe to values, and execute operations. This protocol-agnostic definition allows FA<sup>3</sup>ST Service to be integrated with any kind of communication protocol.</p>
+
+<p>FA<sup>3</sup>ST Service also provides experimental support for integrating time series data into a DT, either stored in the DT itself or from external databases. The implementation is based on a pre-release version of the <i>SubmodelTemplate Time Series Data</i> (SMT Time Series Data) specification; an extension/companion specification to the AAS specification.</p>
+
+<h3>Progress since last milestone </h3>
+<p>FA<sup>3</sup>ST Service has been published as open source [4] and continuously enhanced and improved over time. Major progress is that FA<sup>3</sup>ST Service now supports all of the defined AAS functionality and data formats. It also provides a full-fledge OPC UA endpoint und supports HTTP and MQTT asset connections. Additionally, many smaller improvements and extensions have been made, e.g. all asset connection now support basic authentication and automatic reconnection upon connection loss, support for generic submodel template processors as well as support for concrete submodel template Time Series Data with data being stored in external an InfluxDB. You can find a detailed overview of improvements and fixes over time in the changelog [5].</p>
+
+<p>Overall, FA<sup>3</sup>ST Service has been established as an open source AAS implementation that is recognized and used in the AAS community. </p>
+
+<h3>Examples of usage / illustrations</h3>
+
+<h4>Usage via command-line interface (CLI)<h4>
+<p><code> > java -jar starter-{version}.jar --model myModel.json –config myConfig.json</code></p>
+
+
+<p>Full list of available CLI parameters:
+
+<style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    overflow:hidden;padding:10px 5px;word-break:normal;}
+  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+  .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+  .tg .tg-0lax{text-align:left;vertical-align:top}
+  </style>
+  <table class="tg">
+  <thead>
+    <tr>
+      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Name (short)&nbsp;&nbsp;&nbsp;</th>
+      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Name (long)&nbsp;&nbsp;&nbsp;</th>
+      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Description&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-c&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--config&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>The config file to use.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--emptyModel&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Starts the FAST service with an empty Asset Administration Shell&nbsp;&nbsp;&nbsp;Environment.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--endpoint&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Additional endpoints that should be started.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-h&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--help&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Print help message and exit.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--loglevel-external&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Sets the log level for external packages. This overrides the log&nbsp;&nbsp;&nbsp;level defined by other commands such as -q or -v.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--loglevel-faaast&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Sets the log level for FA³ST packages. This overrides the log level&nbsp;&nbsp;&nbsp;defined by other commands such as -q or -v.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-m&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--model&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>The model file to load.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--[no-]autoCompleteConfig&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Autocompletes the configuration with default values for required&nbsp;&nbsp;&nbsp;configuration sections.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--[no-]modelValidation&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Validates the AAS Environment.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-q&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--quite&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Reduces log output (ERROR for FAST packages, ERROR for all other&nbsp;&nbsp;&nbsp;packages). Default information about the starting process will still be&nbsp;&nbsp;&nbsp;printed.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-v&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--verbose&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables verbose logging (INFO for FAST&nbsp;&nbsp;&nbsp;packages, WARN for all other packages).&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-V&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--version&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Print version information and exit.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-vv&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables very verbose logging (DEBUG for FAST&nbsp;&nbsp;&nbsp;packages, INFO for all other packages).&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-vvv&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables very very verbose logging (TRACE for FAST&nbsp;&nbsp;&nbsp;packages, DEBUG for all other packages).&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax"></td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>&lt;key=value&gt;&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Additional properties to override values of configuration using&nbsp;&nbsp;&nbsp;JSONPath notation without starting '$.' (see <a href="https://goessner.net/articles/JsonPath/">https://goessner.net/articles/JsonPath/</a>)&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </tbody>
+  </table>
+
+</p>
+
+<h4>Usage as docker container</h4>
+<p>Pre-built docker images for FA<sup>3</sup>ST Service are published on Docker Hub [6] and can easily be run via <br>
+<code> > docker run fraunhoferiosb/faaast-service</code> <br>
+To configure FA<sup>3</sup>ST Service in a docker container, you can either use the CLI commands listed above or use environment variables.
+</p>
+
+<h4>Usage from code</h4>
+<p>Starting a FA<sup>3</sup>ST Service from code can be done in one command using the fluent API:
+<pre>
+new Service(ServiceConfig.builder()
+  .core(CoreConfig.builder()
+      .requestHandlerThreadPoolSize(2)
+      .build())
+  .persistence(PersistenceInMemoryConfig.builder()
+      .environment(EnvironmentSerializationManager
+          .deserialize(new File("myModel.json"))
+          .getEnvironment())
+      .build())
+  .endpoint(HttpEndpointConfig.builder()
+      .port(8080)
+      .build())
+  .messageBus(MessageBusInternalConfig.builder()
+      .build())
+  .build())
+  .start();
+</pre>
+
+When executed via CLI the output looks similar to this
+<img src="fast-figure-6.png"></img>
+</p>
+
+<h3>Interfaces  (in/out) – system/user </h3>
+<p>Ease-of-use has been a primary objective in designing FA<sup>3</sup>ST Service. It has been achieved by offering different usage modes (CLI, docker, embedded) and use of a single easy-to-maintain configuration file resulting in a no-code usage approach. </p>
+<p>FA<sup>3</sup>ST Service also offers lots of software interface to extend or adjust the software to the users need. These interfaces are documented on code-level and also described in a human-focused documentation. </p>
+<p>For communication with the outside world, DTs realized with FA<sup>3</sup>ST Service offer a standardized AAS-compliant DT API which currently can be used based on HTTP, OPC UA, or both at the same time. This interface can be used to register, read, write, update, delete, and search for AAS and their subelements.</p>
+
+<h3>Subordinates and platform dependencies </h3>
+<p>The software is based on Java 11. The code has dependencies on multiple open source libraries, e.g. Eclipse Jetty [7] or Jackson [8]. For the AAS metamodel and de-/serialization we use the open source library java-model [2] resp. java-serializer [9] from adminshell.io, which is currently moving to Eclipse AAS4j [3].</p>
+
+<p>All required libraries are licensed under either Apache 2.0, LGPL or MIT. </p>
+<h3>Licenses, etc.  (free for use in the project) </h3>
+<p>The software is open source under Apache 2.0 License. </p>
+
+
+<h3>TRL for overall component/tool and any parts/subordinates </h3>
+<p>TRL 5/6 </p>
+
 
 <h3>References</h3>
-<p>[1] <a href="https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html">https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html</a></p>
-<p>[2] <a href="https://www.eclipse.org/jetty/">https://www.eclipse.org/jetty/</a></p>
-<p>[3] <a href="https://github.com/FasterXML/jackson">https://github.com/FasterXML/jackson</a></p>
-<p>
+<p>[1] <a href=" https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html"> https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html </a></p>
+<p>[2] <a href="https://github.com/admin-shell-io/java-model/">https://github.com/admin-shell-io/java-model/</a></p>
+<p>[3] <a href="https://github.com/eclipse-aas4j/aas4j">https://github.com/eclipse-aas4j/aas4j</a></p>
+<p>[4] <a href="https://github.com/FraunhoferIOSB/FAAAST-Service">https://github.com/FraunhoferIOSB/FAAAST-Service</a></p>
+<p>[5] <a href="https://faaast-service.readthedocs.io/en/latest/changelog/changelog/">https://faaast-service.readthedocs.io/en/latest/changelog/changelog/</a></p>
+<p>[6] <a href="https://hub.docker.com/r/fraunhoferiosb/faaast-service">https://hub.docker.com/r/fraunhoferiosb/faaast-service</a></p>
+<p>[7] <a href="https://www.eclipse.org/jetty/">https://www.eclipse.org/jetty/</a> </p>
+<p>[8] <a href="https://github.com/FasterXML/jackson">https://github.com/FasterXML/jackson</a>  </p>
+<p>[9] <a href="https://github.com/admin-shell-io/java-serializer">https://github.com/admin-shell-io/java-serializer</a></p>
+
+
 
 <h3>To be considered in particular for the following COGNITWIN pilots</h3>
-As FA<sup>3</sup>ST is still in an early stage of development it is currently only used in a demonstrator setup for the Sidenor steel ladle pilot. However, it is envisioned to be used by almost all pilots later on. 
-<p>
+<p>FA<sup>3</sup>ST Service has been applied in the Sidenor and Hydro use cases.</p>
+
 
 </div>
 </section>
