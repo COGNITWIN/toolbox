@@ -90,102 +90,102 @@ FA<sup>3</sup>ST – Fraunhofer AAS Tools for Digital Twins
 
 <p>Full list of available CLI parameters:
 
-<style type="text/css">
-  .tg  {border-collapse:collapse;border-spacing:0;}
-  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    overflow:hidden;padding:10px 5px;word-break:normal;}
-  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-  .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
-  .tg .tg-0lax{text-align:left;vertical-align:top}
-  </style>
-  <table class="tg">
-  <thead>
-    <tr>
-      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Name (short)&nbsp;&nbsp;&nbsp;</th>
-      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Name (long)&nbsp;&nbsp;&nbsp;</th>
-      <th class="tg-amwm">&nbsp;&nbsp;&nbsp;<br>Description&nbsp;&nbsp;&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-c&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--config&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>The config file to use.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--emptyModel&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Starts the FAST service with an empty Asset Administration Shell&nbsp;&nbsp;&nbsp;Environment.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--endpoint&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Additional endpoints that should be started.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-h&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--help&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Print help message and exit.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--loglevel-external&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Sets the log level for external packages. This overrides the log&nbsp;&nbsp;&nbsp;level defined by other commands such as -q or -v.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--loglevel-faaast&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Sets the log level for FA³ST packages. This overrides the log level&nbsp;&nbsp;&nbsp;defined by other commands such as -q or -v.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-m&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--model&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>The model file to load.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--[no-]autoCompleteConfig&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Autocompletes the configuration with default values for required&nbsp;&nbsp;&nbsp;configuration sections.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--[no-]modelValidation&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Validates the AAS Environment.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-q&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--quite&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Reduces log output (ERROR for FAST packages, ERROR for all other&nbsp;&nbsp;&nbsp;packages). Default information about the starting process will still be&nbsp;&nbsp;&nbsp;printed.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-v&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--verbose&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables verbose logging (INFO for FAST&nbsp;&nbsp;&nbsp;packages, WARN for all other packages).&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-V&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>--version&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Print version information and exit.&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-vv&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables very verbose logging (DEBUG for FAST&nbsp;&nbsp;&nbsp;packages, INFO for all other packages).&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>-vvv&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Enables very very verbose logging (TRACE for FAST&nbsp;&nbsp;&nbsp;packages, DEBUG for all other packages).&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="tg-0lax"></td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>&lt;key=value&gt;&nbsp;&nbsp;&nbsp;</td>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Additional properties to override values of configuration using&nbsp;&nbsp;&nbsp;JSONPath notation without starting '$.' (see <a href="https://goessner.net/articles/JsonPath/">https://goessner.net/articles/JsonPath/</a>)&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-  </tbody>
-  </table>
 
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-amwm"> Name (short)   </th>
+        <th class="tg-amwm">   Name (long)   </th>
+        <th class="tg-amwm">   Description   </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0lax"> -c   </td>
+        <td class="tg-0lax"> --config   </td>
+        <td class="tg-0lax">The config file to use.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax"> --emptyModel   </td>
+        <td class="tg-0lax">Starts the FAST service with an empty Asset Administration Shell   Environment.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax"> --endpoint   </td>
+        <td class="tg-0lax">Additional endpoints that should be started.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-h   </td>
+        <td class="tg-0lax">--help   </td>
+        <td class="tg-0lax">Print help message and exit.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">--loglevel-external   </td>
+        <td class="tg-0lax">Sets the log level for external packages. This overrides the log   level defined by other commands such as -q or -v.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">--loglevel-faaast   </td>
+        <td class="tg-0lax">Sets the log level for FA³ST packages. This overrides the log level   defined by other commands such as -q or -v.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-m   </td>
+        <td class="tg-0lax">--model   </td>
+        <td class="tg-0lax">The model file to load.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">--[no-]autoCompleteConfig   </td>
+        <td class="tg-0lax">Autocompletes the configuration with default values for required   configuration sections.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">--[no-]modelValidation   </td>
+        <td class="tg-0lax">Validates the AAS Environment.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"> -q   </td>
+        <td class="tg-0lax">--quite   </td>
+        <td class="tg-0lax">Reduces log output (ERROR for FAST packages, ERROR for all other   packages). Default information about the starting process will still be   printed.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-v   </td>
+        <td class="tg-0lax">--verbose   </td>
+        <td class="tg-0lax">Enables verbose logging (INFO for FAST   packages, WARN for all other packages).   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-V   </td>
+        <td class="tg-0lax">--version   </td>
+        <td class="tg-0lax">Print version information and exit.   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-vv   </td>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">Enables very verbose logging (DEBUG for FAST   packages, INFO for all other packages).   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">-vvv   </td>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">Enables very very verbose logging (TRACE for FAST   packages, DEBUG for all other packages).   </td>
+      </tr>
+      <tr>
+        <td class="tg-0lax"></td>
+        <td class="tg-0lax">&lt;key=value&gt;   </td>
+        <td class="tg-0lax">Additional properties to override values of configuration using   JSONPath notation without starting '$.' (see <a href="https://goessner.net/articles/JsonPath/" target="_blank" rel="noopener noreferrer">https://goessner.net/articles/JsonPath/</a>)   </td>
+      </tr>
+    </tbody>
+    </table>
 </p>
 
 <h4>Usage as docker container</h4>
